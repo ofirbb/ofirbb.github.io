@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ofir Bibi – VP of Research at Lightricks, leading generative video AI. Builder of LTX-Video and LTX-2.">
+  <title>Ofir Bibi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Shared SVG defs -->
+  <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="ico-gh" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+    </symbol>
+    <symbol id="ico-arxiv" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-1.5 17.25l-3-5.25 3-5.25h1.5l-2.625 4.594L12.375 15H12l-1.5 2.25zm4.5 0L12 15h.375l2.625-3.656L12.375 7.5H13.5l3 5.25-3 5.25h-1.5z"/>
+    </symbol>
+    <symbol id="ico-scholar" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 3L1 9l4 2.18V17h2v-4.82l2 1.09V17c0 2.76 2.24 5 5 5s5-2.24 5-5v-3.73l2-1.09V17h2v-5.82L23 9 12 3zm0 2.18L19.77 9 12 12.82 4.23 9 12 5.18zM17 17c0 2.76-2.24 5-5 5s-5-2.24-5-5v-2.91l5 2.73 5-2.73V17z"/>
+    </symbol>
+    <symbol id="ico-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+    </symbol>
+    <symbol id="ico-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+      <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8"/>
+    </symbol>
+  </svg>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #06060a;
+      --surf:    #0c0c13;
+      --surf2:   #111118;
+      --bdr:     #1c1c28;
+      --bdr-s:   #13131e;
+      --txt:     #f0ede8;
+      --txt2:    #9a96aa;
+      --txt3:    #5c5a6a;
+      --gold:    #c9a96e;
+      --gold-b:  #e0c080;
+      --gold-m:  rgba(201,169,110,0.1);
+      --gold-g:  rgba(201,169,110,0.22);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--txt);
+      font-family: 'Inter', system-ui, sans-serif; font-weight: 300;
+      line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased;
+    }
+
+    /* Grain */
+    body::after {
+      content: ''; position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+      opacity: 0.045; pointer-events: none; z-index: 9999;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      padding: 1.2rem 2.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      transition: background .4s, border-color .4s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled { background: rgba(6,6,10,.92); backdrop-filter: blur(14px); border-bottom-color: var(--bdr-s); }
+    .nav-logo { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--txt); text-decoration:none; letter-spacing:.06em; }
+    .nav-logo span { color:var(--gold); }
+    .nav-links { display:flex; gap:1.75rem; list-style:none; align-items:center; }
+    .nav-links a {
+      color:var(--txt3); text-decoration:none;
+      font-size:.7rem; font-weight:500; letter-spacing:.14em; text-transform:uppercase;
+      transition:color .2s;
+    }
+    .nav-links a:hover { color:var(--txt); }
+    .nav-links .nav-icon { display:flex; align-items:center; }
+    .nav-links .nav-icon svg { width:16px; height:16px; }
+
+    /* ── HERO ── */
+    .hero {
+      position:relative; height:100vh; min-height:680px;
+      display:flex; flex-direction:column; justify-content:center;
+      padding:0 8vw; overflow:hidden;
+    }
+    .orbs { position:absolute; inset:0; overflow:hidden; }
+    .orb { position:absolute; border-radius:50%; filter:blur(80px); will-change:transform; }
+    .orb-1 { width:52vw; height:52vw; background:radial-gradient(circle,rgba(100,55,200,.32) 0%,transparent 70%); top:-12%; right:-8%; animation:o1 16s ease-in-out infinite; }
+    .orb-2 { width:36vw; height:36vw; background:radial-gradient(circle,rgba(20,130,170,.22) 0%,transparent 70%); bottom:8%; right:22%; animation:o2 21s ease-in-out infinite; }
+    .orb-3 { width:26vw; height:26vw; background:radial-gradient(circle,rgba(201,169,110,.14) 0%,transparent 70%); bottom:-6%; left:8%; animation:o3 19s ease-in-out infinite; }
+    @keyframes o1 { 0%,100%{transform:translate(0,0) scale(1)} 40%{transform:translate(-3%,5%) scale(1.06)} 70%{transform:translate(3%,-2%) scale(.96)} }
+    @keyframes o2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-5%,-5%) scale(1.08)} }
+    @keyframes o3 { 0%,100%{transform:translate(0,0)} 45%{transform:translate(4%,-4%) scale(1.07)} }
+
+    .hero-content { position:relative; z-index:1; max-width:860px; }
+    .hero-eyebrow {
+      font-size:.7rem; font-weight:500; letter-spacing:.26em; text-transform:uppercase; color:var(--gold);
+      margin-bottom:1.5rem; opacity:0; animation:fadeUp .8s ease forwards .3s;
+    }
+    .hero-name {
+      font-family:'Playfair Display',serif; font-weight:900; line-height:.9;
+      font-size:clamp(4.5rem,10vw,9.5rem); letter-spacing:-.02em; color:var(--txt);
+      opacity:0; animation:fadeUp .8s ease forwards .5s;
+    }
+    .hero-name em { font-style:italic; color:transparent; -webkit-text-stroke:1.5px var(--txt); }
+    .hero-quote {
+      margin-top:1.75rem; font-family:'JetBrains Mono',monospace;
+      font-size:.78rem; color:var(--txt3); letter-spacing:.04em;
+      opacity:0; animation:fadeUp .8s ease forwards .65s;
+    }
+    .hero-sub {
+      margin-top:1.25rem; font-size:clamp(.88rem,1.4vw,1.05rem);
+      color:var(--txt2); max-width:500px; line-height:1.75;
+      opacity:0; animation:fadeUp .8s ease forwards .8s;
+    }
+    .hero-cta {
+      margin-top:2.75rem; display:flex; gap:.9rem; flex-wrap:wrap;
+      opacity:0; animation:fadeUp .8s ease forwards 1s;
+    }
+    .btn {
+      display:inline-flex; align-items:center; gap:.45rem;
+      padding:.65rem 1.4rem; font-size:.72rem; font-weight:500;
+      letter-spacing:.12em; text-transform:uppercase; text-decoration:none;
+      transition:all .22s; border-radius:1px;
+    }
+    .btn-gold { background:var(--gold); color:var(--bg); }
+    .btn-gold:hover { background:var(--gold-b); transform:translateY(-1px); }
+    .btn-ghost { border:1px solid var(--bdr); color:var(--txt3); }
+    .btn-ghost:hover { border-color:var(--gold); color:var(--gold); }
+    .hero-scroll {
+      position:absolute; bottom:2.5rem; left:8vw;
+      display:flex; align-items:center; gap:.75rem;
+      color:var(--txt3); font-size:.65rem; letter-spacing:.22em; text-transform:uppercase;
+      opacity:0; animation:fadeIn 1s ease forwards 1.5s;
+    }
+    .scroll-line { width:38px; height:1px; background:var(--txt3); position:relative; overflow:hidden; }
+    .scroll-line::after { content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background:var(--gold); animation:scan 2.2s ease-in-out infinite 1.6s; }
+    @keyframes scan  { 0%{left:-100%} 100%{left:100%} }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+    /* ── LAYOUT ── */
+    section { padding:7rem 8vw; }
+    .sep { border-top:1px solid var(--bdr-s); }
+    .lbl {
+      display:flex; align-items:center; gap:.9rem;
+      font-size:.68rem; font-weight:500; letter-spacing:.26em; text-transform:uppercase; color:var(--gold);
+      margin-bottom:1.25rem;
+    }
+    .lbl::after { content:''; width:2.5rem; height:1px; background:var(--gold); opacity:.4; }
+    .sec-title { font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3.2rem); font-weight:700; line-height:1.15; color:var(--txt); }
+
+    /* ── ABOUT ── */
+    .about-grid { display:grid; grid-template-columns:280px 1fr; gap:5rem; align-items:start; margin-top:4rem; }
+    .about-visual { position:sticky; top:6rem; }
+    .avatar {
+      width:100%; aspect-ratio:3/4; background:var(--surf); border:1px solid var(--bdr);
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      position:relative; overflow:hidden;
+    }
+    .avatar::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,var(--gold-m) 0%,transparent 65%); }
+    .avatar-letters { font-family:'Playfair Display',serif; font-size:4.5rem; font-weight:900; color:var(--gold); opacity:.75; position:relative; z-index:1; }
+    .avatar-cap { position:absolute; bottom:1.25rem; font-size:.6rem; letter-spacing:.22em; text-transform:uppercase; color:var(--txt3); }
+    .stats-row { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--bdr-s); margin-top:1px; border:1px solid var(--bdr-s); }
+    .stat { background:var(--surf); padding:1.1rem .75rem; text-align:center; }
+    .stat-v { font-family:'JetBrains Mono',monospace; font-size:1.35rem; font-weight:500; color:var(--gold); }
+    .stat-l { font-size:.6rem; letter-spacing:.1em; text-transform:uppercase; color:var(--txt3); margin-top:.2rem; }
+    .bio { font-size:1rem; line-height:1.82; color:var(--txt2); }
+    .bio p + p { margin-top:1.2rem; }
+    .bio strong { color:var(--txt); font-weight:500; }
+    .career-strip {
+      margin-top:2.5rem; border:1px solid var(--bdr-s); background:var(--surf);
+      padding:1.5rem;
+    }
+    .career-strip-title { font-size:.65rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:1.1rem; }
+    .career-line { display:flex; gap:1rem; align-items:baseline; padding:.45rem 0; border-bottom:1px solid var(--bdr-s); }
+    .career-line:last-child { border-bottom:none; padding-bottom:0; }
+    .career-year { font-family:'JetBrains Mono',monospace; font-size:.68rem; color:var(--txt3); min-width:75px; }
+    .career-role { font-size:.85rem; color:var(--txt2); }
+    .career-role strong { color:var(--txt); font-weight:500; }
+    .detail-grid { margin-top:2.5rem; display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+    .detail { border-left:2px solid var(--bdr); padding-left:1rem; }
+    .detail-l { font-size:.62rem; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:var(--txt3); }
+    .detail-v { margin-top:.28rem; font-size:.88rem; color:var(--txt2); }
+
+    /* ── WORK / TIMELINE ── */
+    #work { background:var(--surf); }
+    .work-lead { max-width:640px; margin-top:1.25rem; font-size:1rem; color:var(--txt2); line-height:1.78; }
+    .timeline { margin-top:5rem; position:relative; }
+    .timeline::before { content:''; position:absolute; left:0; top:.5rem; width:1px; height:100%; background:linear-gradient(to bottom,var(--gold) 0%,var(--bdr-s) 80%); }
+    .tl-item { padding-left:3rem; padding-bottom:4.5rem; position:relative; opacity:0; transform:translateY(22px); transition:opacity .6s ease,transform .6s ease; }
+    .tl-item.visible { opacity:1; transform:translateY(0); }
+    .tl-item:last-child { padding-bottom:0; }
+    .tl-dot { position:absolute; left:-5px; top:.5rem; width:11px; height:11px; border-radius:50%; background:var(--gold); border:2px solid var(--surf); }
+    .tl-dot.big { width:15px; height:15px; left:-7px; box-shadow:0 0 0 5px var(--gold-m); }
+    .card {
+      background:var(--surf2); border:1px solid var(--bdr); padding:2.25rem;
+      position:relative; transition:border-color .3s;
+    }
+    .card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(to right,var(--gold),transparent); }
+    .card:hover { border-color:var(--gold-g); }
+    .card.flag { border-color:rgba(201,169,110,.2); background:linear-gradient(135deg,rgba(201,169,110,.03) 0%,var(--surf2) 55%); }
+    .card.flag::before { height:3px; background:linear-gradient(to right,var(--gold),rgba(201,169,110,.25),transparent); }
+    .card-meta { display:flex; align-items:center; gap:.9rem; margin-bottom:1.25rem; }
+    .card-date { font-family:'JetBrains Mono',monospace; font-size:.68rem; color:var(--txt3); letter-spacing:.06em; }
+    .badge { font-size:.6rem; font-weight:500; letter-spacing:.16em; text-transform:uppercase; padding:.18rem .55rem; border:1px solid var(--bdr); color:var(--txt3); }
+    .badge.gold { border-color:var(--gold); color:var(--gold); }
+    .card-title { font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; color:var(--txt); line-height:1.1; }
+    .card-title em { font-style:italic; color:var(--gold); }
+    .card-tag { margin-top:.5rem; font-size:.9rem; color:var(--txt2); }
+    .card-desc { margin-top:1.4rem; font-size:.92rem; line-height:1.78; color:var(--txt2); }
+    .metrics { margin-top:1.8rem; display:flex; flex-wrap:wrap; gap:1px; background:var(--bdr-s); }
+    .met { background:var(--surf); padding:.7rem 1.1rem; flex:1; min-width:90px; }
+    .met-v { font-family:'JetBrains Mono',monospace; font-size:1.05rem; font-weight:500; color:var(--gold); }
+    .met-l { font-size:.6rem; letter-spacing:.1em; text-transform:uppercase; color:var(--txt3); margin-top:.12rem; }
+    .card-links { margin-top:1.8rem; display:flex; gap:.65rem; flex-wrap:wrap; }
+    .card-link {
+      display:inline-flex; align-items:center; gap:.35rem;
+      font-size:.68rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase;
+      text-decoration:none; color:var(--txt3); border:1px solid var(--bdr); padding:.4rem .85rem; transition:all .2s;
+    }
+    .card-link:hover { color:var(--gold); border-color:var(--gold); }
+    .card-link svg { width:12px; height:12px; flex-shrink:0; }
+
+    /* ── PUBLICATIONS ── */
+    .pub-grid { margin-top:3.5rem; display:flex; flex-direction:column; gap:1px; background:var(--bdr-s); border:1px solid var(--bdr-s); }
+    .pub-item {
+      background:var(--surf); padding:1.5rem 2rem;
+      display:grid; grid-template-columns:auto 1fr auto; gap:1.5rem; align-items:start;
+      transition:background .25s;
+    }
+    .pub-item:hover { background:var(--surf2); }
+    .pub-year {
+      font-family:'JetBrains Mono',monospace; font-size:.7rem; color:var(--txt3);
+      padding-top:.15rem; min-width:42px;
+    }
+    .pub-venue {
+      display:inline-block; font-size:.6rem; font-weight:500;
+      letter-spacing:.14em; text-transform:uppercase; padding:.15rem .5rem;
+      border:1px solid var(--bdr); color:var(--txt3); margin-bottom:.6rem;
+    }
+    .pub-venue.top { border-color:var(--gold); color:var(--gold); }
+    .pub-title { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--txt); line-height:1.3; }
+    .pub-authors { margin-top:.35rem; font-size:.8rem; color:var(--txt3); line-height:1.5; }
+    .pub-authors strong { color:var(--gold); font-weight:500; }
+    .pub-link {
+      display:flex; align-items:center; gap:.3rem;
+      font-size:.68rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase;
+      text-decoration:none; color:var(--txt3); border:1px solid var(--bdr);
+      padding:.4rem .75rem; white-space:nowrap; transition:all .2s; align-self:center;
+    }
+    .pub-link:hover { color:var(--gold); border-color:var(--gold); }
+    .pub-link svg { width:11px; height:11px; }
+
+    /* ── PRESS ── */
+    .press-grid { margin-top:3.5rem; display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--bdr-s); border:1px solid var(--bdr-s); }
+    .press-item {
+      background:var(--surf); padding:1.75rem;
+      display:flex; flex-direction:column; gap:.75rem;
+      transition:background .25s;
+    }
+    .press-item:hover { background:var(--surf2); }
+    .press-type { display:flex; align-items:center; gap:.5rem; font-size:.62rem; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); }
+    .press-type svg { width:13px; height:13px; }
+    .press-title { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; color:var(--txt); line-height:1.3; }
+    .press-desc { font-size:.85rem; color:var(--txt2); line-height:1.65; flex:1; }
+    .press-link {
+      display:inline-flex; align-items:center; gap:.35rem;
+      font-size:.68rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase;
+      text-decoration:none; color:var(--txt3); transition:color .2s; align-self:flex-start;
+    }
+    .press-link svg { width:11px; height:11px; }
+    .press-link:hover { color:var(--gold); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top:1px solid var(--bdr-s); padding:2.5rem 8vw;
+      display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.5rem;
+    }
+    .foot-name { font-family:'Playfair Display',serif; font-size:.95rem; font-weight:700; color:var(--txt); }
+    .foot-links { display:flex; gap:1.5rem; list-style:none; align-items:center; }
+    .foot-links a { font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--txt3); text-decoration:none; transition:color .2s; }
+    .foot-links a:hover { color:var(--gold); }
+    .foot-links .fi-ico { display:flex; }
+    .foot-links .fi-ico svg { width:15px; height:15px; }
+    .foot-copy { font-size:.72rem; color:var(--txt3); }
+
+    /* ── FADE-IN ── */
+    .fi { opacity:0; transform:translateY(18px); transition:opacity .65s ease,transform .65s ease; }
+    .fi.visible { opacity:1; transform:translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width:900px) {
+      .about-grid { grid-template-columns:1fr; gap:3rem; }
+      .about-visual { position:static; max-width:240px; }
+      .press-grid { grid-template-columns:1fr; }
+      .nav-links .hide-sm { display:none; }
+    }
+    @media (max-width:640px) {
+      .nav-links { gap:1rem; }
+      section { padding:5rem 6vw; }
+      .pub-item { grid-template-columns:1fr; gap:.75rem; }
+      .pub-year { display:none; }
+      .detail-grid { grid-template-columns:1fr; }
+      .metrics { flex-direction:column; }
+      footer { flex-direction:column; align-items:flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">OB<span>.</span></a>
+  <ul class="nav-links">
+    <li class="hide-sm"><a href="#about">About</a></li>
+    <li class="hide-sm"><a href="#work">Work</a></li>
+    <li class="hide-sm"><a href="#publications">Publications</a></li>
+    <li><a href="https://github.com/ofirbb" target="_blank" rel="noopener" class="nav-icon" title="GitHub">
+      <svg width="17" height="17"><use href="#ico-gh"/></svg>
+    </a></li>
+    <li><a href="https://il.linkedin.com/in/ofirbb" target="_blank" rel="noopener" style="font-size:.7rem;letter-spacing:.1em">LinkedIn</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">VP of Research &nbsp;·&nbsp; Lightricks</p>
+    <h1 class="hero-name">Ofir<br><em>Bibi</em></h1>
+    <p class="hero-quote">// Poke, tinker, prod and tweak. Repeat.</p>
+    <p class="hero-sub">
+      Building the foundation of generative video — from efficient open-source models to production systems reaching millions of creators worldwide.
+    </p>
+    <div class="hero-cta">
+      <a href="#work" class="btn btn-gold">View Work</a>
+      <a href="#publications" class="btn btn-ghost">Publications</a>
+      <a href="https://scholar.google.com/citations?user=UXYmnbgAAAAJ&hl=en" class="btn btn-ghost" target="_blank" rel="noopener">Google Scholar</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div>Scroll</div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="sep">
+  <div class="lbl">About</div>
+  <h2 class="sec-title">Research &amp;<br>Leadership</h2>
+  <div class="about-grid">
+    <div class="about-visual">
+      <div class="avatar">
+        <div class="avatar-letters">OB</div>
+        <div class="avatar-cap">Ofir Bibi &nbsp;·&nbsp; Lightricks</div>
+      </div>
+      <div class="stats-row">
+        <div class="stat"><div class="stat-v">19B</div><div class="stat-l">LTX-2 Params</div></div>
+        <div class="stat"><div class="stat-v">4K</div><div class="stat-l">Native Output</div></div>
+        <div class="stat"><div class="stat-v">18×</div><div class="stat-l">Speed vs Wan2.2</div></div>
+      </div>
+    </div>
+    <div class="fi">
+      <div class="bio">
+        <p>
+          Ofir Bibi is the <strong>VP of Research at Lightricks</strong>, where he leads the development of generative video models and applications. His team built <strong>LTX-2</strong>, a state-of-the-art open-source video generation model, and now focuses on the application layers that bring it to market.
+        </p>
+        <p>
+          Ofir drives both the technical innovation and open-source community strategy that position Lightricks at the forefront of generative media. His work bridges fundamental ML research with practical product deployment, creating efficient pipelines that deliver the latest advances in generative AI to millions of users.
+        </p>
+        <p>
+          Born and raised in <strong>Jerusalem</strong>, he's always been a tinkerer — taking apart radios, building things, and asking how they work. That instinct now drives some of the most efficient video generation models ever built.
+        </p>
+      </div>
+      <div class="career-strip fi">
+        <div class="career-strip-title">Career Timeline</div>
+        <div class="career-line">
+          <span class="career-year">2015 – now</span>
+          <span class="career-role"><strong>Lightricks</strong> — Senior Researcher → Director → VP Research</span>
+        </div>
+        <div class="career-line">
+          <span class="career-year">2009 – 2015</span>
+          <span class="career-role"><strong>BrightSource Energy</strong> — ML Engineer &amp; Algorithms Developer</span>
+        </div>
+        <div class="career-line">
+          <span class="career-year">2009 – 2014</span>
+          <span class="career-role"><strong>Hebrew University</strong> — PhD, Neural Computation (ELSC/ICNC)</span>
+        </div>
+        <div class="career-line">
+          <span class="career-year">2006 – 2009</span>
+          <span class="career-role"><strong>Hebrew University</strong> — BSc, Physics &amp; Computer Science</span>
+        </div>
+        <div class="career-line">
+          <span class="career-year">2001 – 2006</span>
+          <span class="career-role"><strong>IDF</strong> — Team Leader &amp; Project Manager</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="sep">
+  <div class="lbl">Selected Work</div>
+  <h2 class="sec-title">The LTXV<br>Journey</h2>
+  <p class="work-lead">
+    From the world's first real-time open-source video model to a complete audio-video foundation model — a two-year sprint to the frontier of generative media.
+  </p>
+
+  <div class="timeline">
+
+    <!-- LTX-Video 0.9 -->
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="card">
+        <div class="card-meta">
+          <span class="card-date">NOV 2024</span>
+          <span class="badge">Open Source</span>
+        </div>
+        <h3 class="card-title">LTX-<em>Video</em></h3>
+        <p class="card-tag">The world's first real-time open-source video generation model</p>
+        <p class="card-desc">
+          LTXV launched as the first open-source video diffusion model capable of generating video faster than real-time. At 2B parameters it ran on consumer GPUs, introducing motion consistency techniques that reduced visual artifacts common in video diffusion. Its tight integration between Video-VAE and denoising transformer — with a 1:192 spatiotemporal compression ratio — enabled full spatiotemporal self-attention across all frames simultaneously. Available on HuggingFace and GitHub, it reached 9,300+ stars and seeded a global developer community. Trained on Google Cloud TPUs, cutting a six-month timeline to four.
+        </p>
+        <div class="metrics">
+          <div class="met"><div class="met-v">2B</div><div class="met-l">Parameters</div></div>
+          <div class="met"><div class="met-v">&lt;4s</div><div class="met-l">Per 5s clip (H100)</div></div>
+          <div class="met"><div class="met-v">9.3K+</div><div class="met-l">GitHub Stars</div></div>
+          <div class="met"><div class="met-v">1:192</div><div class="met-l">VAE Compression</div></div>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/Lightricks/LTX-Video" class="card-link" target="_blank" rel="noopener">
+            <svg><use href="#ico-gh"/></svg>GitHub
+          </a>
+          <a href="https://huggingface.co/Lightricks/LTX-Video" class="card-link" target="_blank" rel="noopener">🤗 HuggingFace</a>
+          <a href="https://arxiv.org/abs/2501.00103" class="card-link" target="_blank" rel="noopener">
+            <svg><use href="#ico-link"/></svg>Paper
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- LTXV-13B -->
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="card">
+        <div class="card-meta">
+          <span class="card-date">MAY 2025</span>
+          <span class="badge">Breakthrough</span>
+        </div>
+        <h3 class="card-title">LTX-Video <em>13B</em></h3>
+        <p class="card-tag">Multiscale rendering — 30× faster than comparable models</p>
+        <p class="card-desc">
+          The 13B-parameter iteration introduced <strong>multiscale rendering</strong>: the model first drafts motion and structure at low resolution, then progressively adds detail in subsequent passes — dramatically cutting compute without sacrificing quality. Users can compose the distilled and dev variants in a single multiscale workflow. This architecture made high-quality AI video generation accessible on consumer hardware, achieving generation times of 37 seconds versus over 1,491 seconds for comparable competing models.
+        </p>
+        <div class="metrics">
+          <div class="met"><div class="met-v">13B</div><div class="met-l">Parameters</div></div>
+          <div class="met"><div class="met-v">30×</div><div class="met-l">Speed vs peers</div></div>
+          <div class="met"><div class="met-v">37s</div><div class="met-l">vs 1,491s (rival)</div></div>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/Lightricks/LTX-Video" class="card-link" target="_blank" rel="noopener">
+            <svg><use href="#ico-gh"/></svg>GitHub
+          </a>
+          <a href="https://venturebeat.com/ai/lightricks-just-made-ai-video-generation-30x-faster-and-you-wont-need-a-10000-gpu" class="card-link" target="_blank" rel="noopener">
+            <svg><use href="#ico-link"/></svg>VentureBeat
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- LTX-2 FLAGSHIP -->
+    <div class="tl-item">
+      <div class="tl-dot big"></div>
+      <div class="card flag">
+        <div class="card-meta">
+          <span class="card-date">JAN 2026</span>
+          <span class="badge gold">Flagship · Open Source</span>
+        </div>
+        <h3 class="card-title">LTX-<em>2</em></h3>
+        <p class="card-tag">The first complete open-source audio-video foundation model</p>
+        <p class="card-desc">
+          LTX-2 marks a category-defining milestone: the first production-ready model combining native audio and video generation with fully open weights, training code, and inference code. Its 19B-parameter Asymmetric Dual-Stream Diffusion Transformer uses 14B for the video stream and 5B for audio, with bidirectional cross-attention layers synchronizing both modalities in a single unified pass. Generates up to 20 seconds of synchronized audio-video at native 4K and 50 fps on consumer hardware. In human preference studies it performs comparably to Sora 2 and Veo 3, while significantly outperforming all open-source alternatives. Announced with NVIDIA at CES 2026 — Lightricks' "DeepSeek moment."
+        </p>
+        <div class="metrics">
+          <div class="met"><div class="met-v">19B</div><div class="met-l">Parameters</div></div>
+          <div class="met"><div class="met-v">4K</div><div class="met-l">Native Resolution</div></div>
+          <div class="met"><div class="met-v">20s</div><div class="met-l">Max @ 50 fps</div></div>
+          <div class="met"><div class="met-v">18×</div><div class="met-l">Faster vs Wan2.2</div></div>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/Lightricks/LTX-2" class="card-link" target="_blank" rel="noopener">
+            <svg><use href="#ico-gh"/></svg>GitHub
+          </a>
+          <a href="https://huggingface.co/Lightricks/LTX-2" class="card-link" target="_blank" rel="noopener">🤗 HuggingFace</a>
+          <a href="https://arxiv.org/abs/2601.03233" class="card-link" target="_blank" rel="noopener">
+            <svg><use href="#ico-link"/></svg>Paper
+          </a>
+          <a href="https://en.wikipedia.org/wiki/LTX-2" class="card-link" target="_blank" rel="noopener">
+            <svg><use href="#ico-link"/></svg>Wikipedia
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications" class="sep">
+  <div class="lbl">Research</div>
+  <h2 class="sec-title">Publications</h2>
+
+  <div class="pub-grid fi">
+
+    <div class="pub-item">
+      <div class="pub-year">2026</div>
+      <div>
+        <div class="pub-venue top">arXiv</div>
+        <div class="pub-title">LTX-2: Efficient Joint Audio-Visual Foundation Model</div>
+        <div class="pub-authors"><strong>Ofir Bibi</strong>, Yoav HaCohen, Benny Brazowski, Nisan Chiprut, et al.</div>
+      </div>
+      <a href="https://arxiv.org/abs/2601.03233" class="pub-link" target="_blank" rel="noopener">
+        <svg><use href="#ico-link"/></svg>arXiv
+      </a>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2025</div>
+      <div>
+        <div class="pub-venue top">arXiv</div>
+        <div class="pub-title">LTX-Video: Realtime Video Latent Diffusion</div>
+        <div class="pub-authors"><strong>Ofir Bibi</strong>, Yoav HaCohen, Nisan Chiprut, Benny Brazowski, Daniel Shalem, et al.</div>
+      </div>
+      <a href="https://arxiv.org/abs/2501.00103" class="pub-link" target="_blank" rel="noopener">
+        <svg><use href="#ico-link"/></svg>arXiv
+      </a>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2021</div>
+      <div>
+        <div class="pub-venue top">SIGGRAPH</div>
+        <div class="pub-title">Endless Loops: Detecting and Animating Periodic Patterns in Still Images</div>
+        <div class="pub-authors">Tavi Halperin, Hanit Hakim, Orestis Vantzos, Gershon Hochman, Netai Benaim, Lior Sassy, Michael Kupchik, Ohad Fried, <strong>Ofir Bibi</strong></div>
+      </div>
+      <a href="https://arxiv.org/abs/2105.09374" class="pub-link" target="_blank" rel="noopener">
+        <svg><use href="#ico-link"/></svg>arXiv
+      </a>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2019</div>
+      <div>
+        <div class="pub-venue">CGF</div>
+        <div class="pub-title">Clear Skies Ahead: Towards Real-Time Automatic Sky Replacement in Video</div>
+        <div class="pub-authors">Tavi Halperin, Harel Cain, <strong>Ofir Bibi</strong>, Michael Werman — Computer Graphics Forum, Vol. 38</div>
+      </div>
+      <a href="https://arxiv.org/abs/1903.02582" class="pub-link" target="_blank" rel="noopener">
+        <svg><use href="#ico-link"/></svg>arXiv
+      </a>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2013</div>
+      <div>
+        <div class="pub-venue top">IEEE TSP</div>
+        <div class="pub-title">Time Varying Autoregressive Moving Average Models for Covariance Estimation</div>
+        <div class="pub-authors"><strong>Ofir Bibi</strong>, Ami Wiesel, Amir Globerson — IEEE Transactions on Signal Processing, Vol. 61, No. 11</div>
+      </div>
+      <a href="https://ieeexplore.ieee.org/document/6494326/" class="pub-link" target="_blank" rel="noopener">
+        <svg><use href="#ico-link"/></svg>IEEE
+      </a>
+    </div>
+
+  </div>
+
+  <div style="margin-top:1.5rem; text-align:right;">
+    <a href="https://scholar.google.com/citations?user=UXYmnbgAAAAJ&hl=en" class="btn btn-ghost" target="_blank" rel="noopener" style="font-size:.7rem;">
+      <svg width="14" height="14"><use href="#ico-scholar"/></svg>All publications on Google Scholar →
+    </a>
+  </div>
+</section>
+
+<!-- PRESS -->
+<section id="press" class="sep">
+  <div class="lbl">Press &amp; Media</div>
+  <h2 class="sec-title">Talks &amp;<br>Coverage</h2>
+
+  <div class="press-grid fi">
+
+    <div class="press-item">
+      <div class="press-type"><svg><use href="#ico-mic"/></svg>Podcast</div>
+      <div class="press-title">Code Story — Season 11 Bonus: Ofir Bibi, Lightricks</div>
+      <div class="press-desc">Jerusalem upbringing, love of photography, Lightricks' journey from on-device tricks to cloud foundation models, LTXV open-source strategy, and the multimodal future of video AI.</div>
+      <a href="https://codestory.co/podcast/bonus-ofir-bibi-lightricks/" class="press-link" target="_blank" rel="noopener">Listen <svg><use href="#ico-link"/></svg></a>
+    </div>
+
+    <div class="press-item">
+      <div class="press-type"><svg><use href="#ico-link"/></svg>Interview</div>
+      <div class="press-title">AiThority — VP Research at Lightricks on Generative AI</div>
+      <div class="press-desc">On the generative AI transformation, responsible AI development, training data quality, and bridging fundamental research with product deployment at scale.</div>
+      <a href="https://aithority.com/it-and-devops/aithority-interview-with-ofir-bibi-vp-research-at-lightricks/" class="press-link" target="_blank" rel="noopener">Read <svg><use href="#ico-link"/></svg></a>
+    </div>
+
+    <div class="press-item">
+      <div class="press-type"><svg><use href="#ico-link"/></svg>Case Study</div>
+      <div class="press-title">Google Cloud — Lightricks LTXV: How TPUs Cut Time-to-Market by 33%</div>
+      <div class="press-desc">"We achieved our goals of launching on time and being first to market, in large part thanks to TPU enabling us to innovate faster — turning a six-month project into four." — Ofir Bibi</div>
+      <a href="https://cloud.google.com/customers/lightricks-ltxv" class="press-link" target="_blank" rel="noopener">Read <svg><use href="#ico-link"/></svg></a>
+    </div>
+
+    <div class="press-item">
+      <div class="press-type"><svg><use href="#ico-mic"/></svg>Podcast</div>
+      <div class="press-title">Tech Talks Daily — Open Source Video and the Race for Faster Creativity</div>
+      <div class="press-desc">Deep dive on LTXV open-source strategy, training philosophy, the role of data quality over quantity, and the road to multimodal foundation models.</div>
+      <a href="https://techblogwriter.co.uk/lightricks/" class="press-link" target="_blank" rel="noopener">Read <svg><use href="#ico-link"/></svg></a>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="foot-name">Ofir Bibi</span>
+  <ul class="foot-links">
+    <li><a href="https://github.com/ofirbb" target="_blank" rel="noopener" class="fi-ico" title="GitHub">
+      <svg><use href="#ico-gh"/></svg>
+    </a></li>
+    <li><a href="https://il.linkedin.com/in/ofirbb" target="_blank" rel="noopener">LinkedIn</a></li>
+    <li><a href="https://scholar.google.com/citations?user=UXYmnbgAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a></li>
+    <li><a href="https://github.com/Lightricks/LTX-Video" target="_blank" rel="noopener">LTX-Video</a></li>
+    <li><a href="https://github.com/Lightricks/LTX-2" target="_blank" rel="noopener">LTX-2</a></li>
+    <li><a href="https://www.lightricks.com" target="_blank" rel="noopener">Lightricks</a></li>
+  </ul>
+  <span class="foot-copy">VP of Research · Lightricks</span>
+</footer>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50), { passive: true });
+
+  // Intersection fade-in + timeline
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.fi, .tl-item').forEach((el, i) => {
+    if (el.classList.contains('tl-item')) el.style.transitionDelay = `${i * 0.08}s`;
+    obs.observe(el);
+  });
+</script>
+</body>
+</html>
