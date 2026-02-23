@@ -97,17 +97,39 @@
     @keyframes o2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-5%,-5%) scale(1.08)} }
     @keyframes o3 { 0%,100%{transform:translate(0,0)} 45%{transform:translate(4%,-4%) scale(1.07)} }
 
-    .hero-content { position:relative; z-index:1; max-width:860px; }
+    .hero-inner {
+      position:relative; z-index:1;
+      display:flex; align-items:center; gap:3.5rem;
+    }
+    .hero-photo-wrap { flex-shrink:0; opacity:0; animation:fadeIn .8s ease forwards .3s; }
+    .hero-photo {
+      width:150px; height:150px; border-radius:50%;
+      border:1.5px solid var(--gold-g);
+      background:var(--surf); overflow:hidden;
+      display:flex; align-items:center; justify-content:center;
+      position:relative;
+      box-shadow: 0 0 40px var(--gold-m);
+    }
+    .hero-photo-letters {
+      font-family:'Playfair Display',serif; font-size:2.8rem; font-weight:900;
+      color:var(--gold); opacity:.7; position:relative; z-index:0;
+    }
+    .hero-photo img {
+      position:absolute; inset:0; width:100%; height:100%;
+      object-fit:cover; z-index:1;
+    }
+    .hero-content { flex:1; min-width:0; }
     .hero-eyebrow {
       font-size:.7rem; font-weight:500; letter-spacing:.26em; text-transform:uppercase; color:var(--gold);
-      margin-bottom:1.5rem; opacity:0; animation:fadeUp .8s ease forwards .3s;
+      margin-bottom:1rem; opacity:0; animation:fadeUp .8s ease forwards .3s;
     }
     .hero-name {
-      font-family:'Playfair Display',serif; font-weight:900; line-height:.9;
-      font-size:clamp(4.5rem,10vw,9.5rem); letter-spacing:-.02em; color:var(--txt);
+      font-family:'Playfair Display',serif; font-weight:900; line-height:1;
+      font-size:clamp(2.8rem,5.5vw,5.5rem); letter-spacing:-.02em; color:var(--txt);
+      white-space:nowrap;
       opacity:0; animation:fadeUp .8s ease forwards .5s;
     }
-    .hero-name em { font-style:italic; color:transparent; -webkit-text-stroke:1.5px var(--txt); }
+    .hero-name em { font-style:italic; color:var(--gold); }
     .hero-quote {
       margin-top:1.75rem; font-family:'JetBrains Mono',monospace;
       font-size:.78rem; color:var(--txt3); letter-spacing:.04em;
@@ -304,6 +326,9 @@
     @media (max-width:640px) {
       .nav-links { gap:1rem; }
       section { padding:5rem 6vw; }
+      .hero-inner { flex-direction:column; gap:2rem; align-items:flex-start; }
+      .hero-photo { width:110px; height:110px; }
+      .hero-name { white-space:normal; font-size:clamp(2.4rem,10vw,3.5rem); }
       .pub-item { grid-template-columns:1fr; gap:.75rem; }
       .pub-year { display:none; }
       .detail-grid { grid-template-columns:1fr; }
@@ -335,17 +360,25 @@
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
   </div>
-  <div class="hero-content">
-    <p class="hero-eyebrow">VP of Research &nbsp;·&nbsp; Lightricks</p>
-    <h1 class="hero-name">Ofir<br><em>Bibi</em></h1>
-    <p class="hero-quote">// Poke, tinker, prod and tweak. Repeat.</p>
-    <p class="hero-sub">
-      Building the foundation of generative video — from efficient open-source models to production systems reaching millions of creators worldwide.
-    </p>
-    <div class="hero-cta">
-      <a href="#work" class="btn btn-gold">View Work</a>
-      <a href="#publications" class="btn btn-ghost">Publications</a>
-      <a href="https://scholar.google.com/citations?user=UXYmnbgAAAAJ&hl=en" class="btn btn-ghost" target="_blank" rel="noopener">Google Scholar</a>
+  <div class="hero-inner">
+    <div class="hero-photo-wrap">
+      <div class="hero-photo">
+        <span class="hero-photo-letters">OB</span>
+        <img src="photo.jpg" alt="Ofir Bibi" onerror="this.remove()">
+      </div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">VP of Research &nbsp;·&nbsp; Lightricks</p>
+      <h1 class="hero-name">Ofir <em>Bibi</em></h1>
+      <p class="hero-quote">// Poke, tinker, prod and tweak. Repeat.</p>
+      <p class="hero-sub">
+        Building the foundation of generative video — from efficient open-source models to production systems reaching millions of creators worldwide.
+      </p>
+      <div class="hero-cta">
+        <a href="#work" class="btn btn-gold">View Work</a>
+        <a href="#publications" class="btn btn-ghost">Publications</a>
+        <a href="https://scholar.google.com/citations?user=UXYmnbgAAAAJ&hl=en" class="btn btn-ghost" target="_blank" rel="noopener">Google Scholar</a>
+      </div>
     </div>
   </div>
   <div class="hero-scroll"><div class="scroll-line"></div>Scroll</div>
@@ -360,11 +393,6 @@
       <div class="avatar">
         <div class="avatar-letters">OB</div>
         <div class="avatar-cap">Ofir Bibi &nbsp;·&nbsp; Lightricks</div>
-      </div>
-      <div class="stats-row">
-        <div class="stat"><div class="stat-v">19B</div><div class="stat-l">LTX-2 Params</div></div>
-        <div class="stat"><div class="stat-v">4K</div><div class="stat-l">Native Output</div></div>
-        <div class="stat"><div class="stat-v">18×</div><div class="stat-l">Speed vs Wan2.2</div></div>
       </div>
     </div>
     <div class="fi">
