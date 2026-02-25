@@ -196,14 +196,17 @@
     .pub-item { background:var(--surf); display:grid; grid-template-columns:160px 1fr; align-items:stretch; transition:background .2s; }
     .pub-item:hover { background:#fafaf7; }
     .pub-thumb {
-      width:160px; overflow:hidden; position:relative;
-      background:var(--surf2);
-      display:flex; align-items:center; justify-content:center;
+      width:160px; min-height:140px; overflow:hidden; position:relative;
+      background:var(--surf2); flex-shrink:0;
     }
-    .pub-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+    .pub-thumb img {
+      position:absolute; inset:0; width:100%; height:100%;
+      object-fit:cover; object-position:top center; display:block; z-index:1;
+    }
     .pub-thumb-fallback {
-      display:flex; flex-direction:column; align-items:center; justify-content:center;
-      gap:.4rem; padding:1rem; text-align:center; width:100%; height:100%;
+      display:none; flex-direction:column; align-items:center; justify-content:center;
+      gap:.4rem; padding:1rem; text-align:center;
+      position:absolute; inset:0;
     }
     .pub-thumb-fallback .ft-year { font-family:'JetBrains Mono',monospace; font-size:1.4rem; font-weight:500; color:var(--gold); opacity:.7; }
     .pub-thumb-fallback .ft-venue { font-size:.6rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--txt3); }
@@ -309,7 +312,7 @@
       <p class="hero-role"><strong>VP Research</strong> &nbsp;·&nbsp; Lightricks</p>
       <p class="hero-quote">// Poke, tinker, prod and tweak. Repeat.</p>
       <p class="hero-sub">
-        Building the foundation of generative video — from efficient open-source models to production systems reaching millions of creators worldwide.
+        Building the foundation of generative media — from efficient open-source models to production systems reaching millions of creators worldwide.
       </p>
       <div class="hero-cta">
         <a href="#work" class="btn btn-gold">View Work</a>
@@ -370,7 +373,7 @@
 <!-- WORK — most recent first, achievement-focused -->
 <section id="work" class="sep">
   <div class="lbl">Selected Work</div>
-  <h2 class="sec-title">The LTXV Journey</h2>
+  <h2 class="sec-title">The LTX Model Journey</h2>
   <p class="work-lead">
     From the world's first real-time open-source video model to a complete audio-video foundation model — a two-year sprint to the frontier of generative media.
   </p>
@@ -454,7 +457,7 @@
       <div class="pub-thumb">
         <img src="https://image.thum.io/get/width/320/crop/220/noanimate/https://arxiv.org/html/2601.03233"
              alt="LTX-2 paper" loading="lazy"
-             onerror="this.style.display='none'">
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="pub-thumb-fallback"><span class="ft-year">2026</span><span class="ft-venue">arXiv</span></div>
       </div>
       <div class="pub-body">
@@ -472,7 +475,7 @@
       <div class="pub-thumb">
         <img src="https://image.thum.io/get/width/320/crop/220/noanimate/https://arxiv.org/html/2501.00103"
              alt="LTX-Video paper" loading="lazy"
-             onerror="this.style.display='none'">
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="pub-thumb-fallback"><span class="ft-year">2025</span><span class="ft-venue">arXiv</span></div>
       </div>
       <div class="pub-body">
@@ -490,7 +493,7 @@
       <div class="pub-thumb">
         <img src="https://image.thum.io/get/width/320/crop/220/noanimate/https://pub.res.lightricks.com/endless-loops/"
              alt="Endless Loops paper" loading="lazy"
-             onerror="this.style.display='none'">
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="pub-thumb-fallback"><span class="ft-year">2021</span><span class="ft-venue">SIGGRAPH</span></div>
       </div>
       <div class="pub-body">
@@ -508,7 +511,7 @@
       <div class="pub-thumb">
         <img src="https://image.thum.io/get/width/320/crop/220/noanimate/https://arxiv.org/html/1903.02582"
              alt="Clear Skies paper" loading="lazy"
-             onerror="this.style.display='none'">
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="pub-thumb-fallback"><span class="ft-year">2019</span><span class="ft-venue">CGF</span></div>
       </div>
       <div class="pub-body">
@@ -526,7 +529,7 @@
       <div class="pub-thumb">
         <img src="https://image.thum.io/get/width/320/crop/220/noanimate/https://www.cs.huji.ac.il/~amiw/wiesel_arma.pdf"
              alt="IEEE TSP paper" loading="lazy"
-             onerror="this.style.display='none'">
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="pub-thumb-fallback"><span class="ft-year">2013</span><span class="ft-venue">IEEE TSP</span></div>
       </div>
       <div class="pub-body">
