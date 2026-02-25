@@ -141,22 +141,19 @@
 
     /* ── ABOUT ── tighter, flows from hero ── */
     #about { padding-top:4rem; padding-bottom:4rem; }
-    .about-grid { display:grid; grid-template-columns:240px 1fr; gap:4rem; align-items:start; margin-top:3rem; }
-    .about-visual { position:sticky; top:5rem; }
-    .avatar { width:100%; aspect-ratio:4/5; background:var(--surf2); border:1px solid var(--bdr); display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; overflow:hidden; }
-    .avatar::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,var(--gold-m) 0%,transparent 65%); }
-    .avatar-letters { font-family:'Playfair Display',serif; font-size:4rem; font-weight:900; color:var(--gold); opacity:.6; position:relative; z-index:1; }
-    .avatar-cap { position:absolute; bottom:1rem; font-size:.58rem; letter-spacing:.2em; text-transform:uppercase; color:var(--txt3); }
+    .about-grid { display:grid; grid-template-columns:1fr; gap:2.5rem; align-items:start; margin-top:3rem; }
     .bio { font-size:.97rem; line-height:1.8; color:var(--txt2); }
     .bio p + p { margin-top:1rem; }
     .bio strong { color:var(--txt); font-weight:600; }
     .career-strip { margin-top:2rem; border:1px solid var(--bdr); background:var(--surf); padding:1.25rem; }
     .career-strip-title { font-size:.62rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:.9rem; }
-    .career-line { display:flex; gap:1rem; align-items:baseline; padding:.38rem 0; border-bottom:1px solid var(--bdr-s); }
+    .career-line { display:grid; grid-template-columns:100px 1fr; gap:.75rem 1rem; align-items:start; padding:.6rem 0; border-bottom:1px solid var(--bdr-s); }
     .career-line:last-child { border-bottom:none; padding-bottom:0; }
-    .career-year { font-family:'JetBrains Mono',monospace; font-size:.66rem; color:var(--txt3); min-width:78px; }
+    .career-year { font-family:'JetBrains Mono',monospace; font-size:.66rem; color:var(--txt3); padding-top:.18rem; }
+    .career-right { display:flex; flex-direction:column; gap:.3rem; }
     .career-role { font-size:.84rem; color:var(--txt2); }
     .career-role strong { color:var(--txt); font-weight:600; }
+    .career-achieve { font-size:.78rem; color:var(--txt3); line-height:1.55; }
 
     /* ── WORK / TIMELINE ── */
     #work { background:var(--surf2); }
@@ -258,7 +255,6 @@
     /* ── RESPONSIVE ── */
     @media (max-width:900px) {
       .about-grid { grid-template-columns:1fr; gap:2.5rem; }
-      .about-visual { position:static; max-width:200px; }
       .press-grid { grid-template-columns:1fr; }
       .nav-links .hide-sm { display:none; }
     }
@@ -328,12 +324,6 @@
   <div class="lbl">About</div>
   <h2 class="sec-title">Research &amp; Leadership</h2>
   <div class="about-grid">
-    <div class="about-visual">
-      <div class="avatar">
-        <div class="avatar-letters">OB</div>
-        <div class="avatar-cap">Ofir Bibi &nbsp;·&nbsp; Lightricks</div>
-      </div>
-    </div>
     <div class="fi">
       <div class="bio">
         <p>
@@ -347,23 +337,38 @@
         <div class="career-strip-title">Career</div>
         <div class="career-line">
           <span class="career-year">2015 – now</span>
-          <span class="career-role"><strong>Lightricks</strong> — Researcher → Director → VP Research</span>
+          <div class="career-right">
+            <span class="career-role"><strong>Lightricks</strong> — Researcher → Director → VP Research</span>
+            <span class="career-achieve">Built the team that delivered the LTX Models, the algorithmic core of Facetune and B2C products and the engineering foundations for ML workloads in cloud and mobile</span>
+          </div>
         </div>
         <div class="career-line">
           <span class="career-year">2009 – 2015</span>
-          <span class="career-role"><strong>BrightSource Energy</strong> — ML Engineer</span>
+          <div class="career-right">
+            <span class="career-role"><strong>BrightSource Energy</strong> — ML Engineer</span>
+            <span class="career-achieve">Developed ML systems for real-time optimization of utility-scale concentrated solar power plants</span>
+          </div>
         </div>
         <div class="career-line">
           <span class="career-year">2009 – 2014</span>
-          <span class="career-role"><strong>Hebrew University</strong> — PhD, Neural Computation</span>
+          <div class="career-right">
+            <span class="career-role"><strong>Hebrew University</strong> — PhD, Neural Computation</span>
+            <span class="career-achieve">Developed novel yet practical Estimation and Optimization methods for statistical system simulation and prediction</span>
+          </div>
         </div>
         <div class="career-line">
           <span class="career-year">2006 – 2009</span>
-          <span class="career-role"><strong>Hebrew University</strong> — BSc, Physics &amp; CS</span>
+          <div class="career-right">
+            <span class="career-role"><strong>Hebrew University</strong> — BSc, Physics &amp; CS</span>
+            <span class="career-achieve">Dean's list and multiple excellence awards</span>
+          </div>
         </div>
         <div class="career-line">
           <span class="career-year">2001 – 2006</span>
-          <span class="career-role"><strong>IDF</strong> — Team Leader &amp; Project Manager</span>
+          <div class="career-right">
+            <span class="career-role"><strong>IDF</strong> — Team Leader &amp; Project Manager</span>
+            <span class="career-achieve">Led engineering team in a technological unit, managing complex technical projects</span>
+          </div>
         </div>
       </div>
     </div>
