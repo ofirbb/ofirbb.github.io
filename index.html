@@ -196,12 +196,12 @@
     .pub-item { background:var(--surf); display:grid; grid-template-columns:160px 1fr; align-items:stretch; transition:background .2s; }
     .pub-item:hover { background:#fafaf7; }
     .pub-thumb {
-      width:160px; min-height:140px; overflow:hidden; position:relative;
-      background:var(--surf2); flex-shrink:0;
+      width:160px; height:160px; overflow:hidden; position:relative;
+      background:#fff; flex-shrink:0; align-self:center;
     }
     .pub-thumb img {
       position:absolute; inset:0; width:100%; height:100%;
-      object-fit:cover; object-position:top center; display:block; z-index:1;
+      object-fit:contain; display:block; z-index:1;
     }
     .pub-thumb-fallback {
       display:none; flex-direction:column; align-items:center; justify-content:center;
@@ -261,8 +261,7 @@
       .hero-photo-letters { font-size:2rem; }
       .hero-name { white-space:normal; font-size:clamp(2.2rem,10vw,3.2rem); }
       .pub-item { grid-template-columns:1fr; }
-      .pub-thumb { width:100%; height:140px; }
-      footer { flex-direction:column; align-items:flex-start; }
+      .pub-thumb { width:100%; height:180px; align-self:auto; }
     }
   </style>
 </head>
@@ -458,8 +457,8 @@
 
     <div class="pub-item">
       <div class="pub-thumb">
-        <img src="https://image.thum.io/get/width/320/crop/220/noanimate/https://arxiv.org/html/2601.03233"
-             alt="LTX-2 paper" loading="lazy"
+        <img src="https://arxiv.org/html/2601.03233/x1.png"
+             alt="LTX-2 Fig. 3 – AV attention maps" loading="lazy"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="pub-thumb-fallback"><span class="ft-year">2026</span><span class="ft-venue">arXiv</span></div>
       </div>
@@ -476,8 +475,27 @@
 
     <div class="pub-item">
       <div class="pub-thumb">
-        <img src="https://image.thum.io/get/width/320/crop/220/noanimate/https://arxiv.org/html/2501.00103"
-             alt="LTX-Video paper" loading="lazy"
+        <img src="https://arxiv.org/html/2601.22143/x1.png"
+             alt="JUST-DUB-IT Fig. 1 – joint audio-visual dubbing" loading="lazy"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="pub-thumb-fallback"><span class="ft-year">2026</span><span class="ft-venue">arXiv</span></div>
+      </div>
+      <div class="pub-body">
+        <div class="pub-top">
+          <span class="pub-venue top">arXiv</span>
+          <span class="pub-year-tag">2026</span>
+        </div>
+        <div class="pub-title">JUST-DUB-IT: Video Dubbing via Joint Audio-Visual Diffusion</div>
+        <div class="pub-authors">Anthony Chen, Naomi Ken Korem, Tavi Halperin, Matan Ben Yosef, Urska Jelercic, <strong>Ofir Bibi</strong>, Or Patashnik, Daniel Cohen-Or</div>
+        <a href="https://arxiv.org/abs/2601.22143" class="pub-link" target="_blank" rel="noopener">Read paper <svg><use href="#ico-link"/></svg></a>
+        <a href="https://justdubit.github.io/" class="pub-link" target="_blank" rel="noopener">Project page <svg><use href="#ico-link"/></svg></a>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-thumb">
+        <img src="https://arxiv.org/html/2501.00103/extracted/6102773/assets/figures/denoising.png"
+             alt="LTX-Video Fig. 2 – holistic denoising strategy" loading="lazy"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="pub-thumb-fallback"><span class="ft-year">2025</span><span class="ft-venue">arXiv</span></div>
       </div>
@@ -494,10 +512,10 @@
 
     <div class="pub-item">
       <div class="pub-thumb">
-        <img src="https://image.thum.io/get/width/320/crop/220/noanimate/https://pub.res.lightricks.com/endless-loops/"
-             alt="Endless Loops paper" loading="lazy"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="pub-thumb-fallback"><span class="ft-year">2021</span><span class="ft-venue">SIGGRAPH</span></div>
+        <video autoplay loop muted playsinline
+               style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <source src="https://pub.res.lightricks.com/endless-loops/fred-kearney-tD-OdbIZc90-unsplash.b.mp4" type="video/mp4">
+        </video>
       </div>
       <div class="pub-body">
         <div class="pub-top">
@@ -507,15 +525,16 @@
         <div class="pub-title">Endless Loops: Detecting and Animating Periodic Patterns in Still Images</div>
         <div class="pub-authors">Tavi Halperin, Hanit Hakim, Orestis Vantzos, Gershon Hochman, Netai Benaim, Lior Sassy, Michael Kupchik, Ohad Fried, <strong>Ofir Bibi</strong></div>
         <a href="https://arxiv.org/abs/2105.09374" class="pub-link" target="_blank" rel="noopener">Read paper <svg><use href="#ico-link"/></svg></a>
+        <a href="https://pub.res.lightricks.com/endless-loops/" class="pub-link" target="_blank" rel="noopener">Project page <svg><use href="#ico-link"/></svg></a>
       </div>
     </div>
 
     <div class="pub-item">
-      <div class="pub-thumb">
-        <img src="https://image.thum.io/get/width/320/crop/220/noanimate/https://arxiv.org/html/1903.02582"
-             alt="Clear Skies paper" loading="lazy"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="pub-thumb-fallback"><span class="ft-year">2019</span><span class="ft-venue">CGF</span></div>
+      <div class="pub-thumb" style="background:#000;">
+        <video autoplay loop muted playsinline
+               style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <source src="clearskies_skate.mp4" type="video/mp4">
+        </video>
       </div>
       <div class="pub-body">
         <div class="pub-top">
@@ -525,15 +544,13 @@
         <div class="pub-title">Clear Skies Ahead: Towards Real-Time Automatic Sky Replacement in Video</div>
         <div class="pub-authors">Tavi Halperin, Harel Cain, <strong>Ofir Bibi</strong>, Michael Werman — Computer Graphics Forum, Vol. 38</div>
         <a href="https://arxiv.org/abs/1903.02582" class="pub-link" target="_blank" rel="noopener">Read paper <svg><use href="#ico-link"/></svg></a>
+        <a href="https://www.youtube.com/watch?v=1uZ46YzX-pI" class="pub-link" target="_blank" rel="noopener">Watch demo <svg><use href="#ico-link"/></svg></a>
       </div>
     </div>
 
     <div class="pub-item">
       <div class="pub-thumb">
-        <img src="https://image.thum.io/get/width/320/crop/220/noanimate/https://www.cs.huji.ac.il/~amiw/wiesel_arma.pdf"
-             alt="IEEE TSP paper" loading="lazy"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="pub-thumb-fallback"><span class="ft-year">2013</span><span class="ft-venue">IEEE TSP</span></div>
+        <div class="pub-thumb-fallback" style="display:flex"><span class="ft-year">2013</span><span class="ft-venue">IEEE TSP</span></div>
       </div>
       <div class="pub-body">
         <div class="pub-top">
