@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ofir Bibi – VP of Research at Lightricks, leading generative video AI. Builder of LTX-Video and LTX-2.">
+  <meta name="description" content="Ofir Bibi – VP Research at Lightricks, leading generative video AI. Builder of LTX-Video and LTX-2.">
   <title>Ofir Bibi</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,263 +29,247 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:     #06060a;
-      --surf:   #0c0c13;
-      --surf2:  #111118;
-      --bdr:    #1c1c28;
-      --bdr-s:  #13131e;
-      --txt:    #f0ede8;
-      --txt2:   #9a96aa;
-      --txt3:   #5c5a6a;
-      --gold:   #c9a96e;
-      --gold-b: #e0c080;
-      --gold-m: rgba(201,169,110,0.1);
-      --gold-g: rgba(201,169,110,0.22);
+      --bg:    #f7f5f0;
+      --surf:  #ffffff;
+      --surf2: #f2f0eb;
+      --bdr:   #e6e2d8;
+      --bdr-s: #ede9e0;
+      --txt:   #1a1710;
+      --txt2:  #4a4640;
+      --txt3:  #8a8680;
+      --gold:  #9a7228;
+      --gold-b:#7a5a18;
+      --gold-m:rgba(154,114,40,.1);
+      --gold-g:rgba(154,114,40,.22);
     }
 
     html { scroll-behavior: smooth; }
     body {
       background: var(--bg); color: var(--txt);
-      font-family: 'Inter', system-ui, sans-serif; font-weight: 300;
+      font-family: 'Inter', system-ui, sans-serif; font-weight: 400;
       line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased;
     }
 
-    /* Grain */
-    body::after {
-      content: ''; position: fixed; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
-      opacity: 0.045; pointer-events: none; z-index: 9999;
-    }
-
-    /* ── NAV ── always solid; hides on scroll-down on mobile ── */
+    /* ── NAV ── always visible, solid, high contrast ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      padding: 1.2rem 2.5rem;
+      padding: 1rem 2.5rem;
       display: flex; justify-content: space-between; align-items: center;
-      background: rgba(6,6,10,.95);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--bdr-s);
+      background: rgba(255,255,255,.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--bdr);
       transition: transform .3s ease;
     }
     nav.nav-hidden { transform: translateY(-100%); }
-    .nav-logo { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--txt); text-decoration:none; letter-spacing:.06em; }
+    .nav-logo { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--txt); text-decoration:none; letter-spacing:.04em; }
     .nav-logo span { color:var(--gold); }
     .nav-links { display:flex; gap:1.75rem; list-style:none; align-items:center; }
-    .nav-links a { color:var(--txt3); text-decoration:none; font-size:.7rem; font-weight:500; letter-spacing:.14em; text-transform:uppercase; transition:color .2s; }
+    .nav-links a { color:var(--txt2); text-decoration:none; font-size:.72rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase; transition:color .2s; }
     .nav-links a:hover { color:var(--txt); }
-    .nav-links .nav-icon { display:flex; align-items:center; }
+    .nav-links .nav-icon { display:flex; align-items:center; color:var(--txt3); }
+    .nav-links .nav-icon:hover { color:var(--txt); }
     .nav-links .nav-icon svg { width:16px; height:16px; }
 
-    /* ── HERO ── */
+    /* ── HERO ── compact, name first ── */
     .hero {
-      position:relative; min-height:100vh;
-      display:flex; flex-direction:column; justify-content:center;
-      padding: 7rem 8vw 4rem; overflow:hidden;
+      position: relative;
+      padding: 7rem 8vw 4rem;
+      overflow: hidden;
+      background: var(--bg);
     }
-    .orbs { position:absolute; inset:0; overflow:hidden; }
-    .orb { position:absolute; border-radius:50%; filter:blur(80px); will-change:transform; }
-    .orb-1 { width:52vw; height:52vw; background:radial-gradient(circle,rgba(100,55,200,.32) 0%,transparent 70%); top:-12%; right:-8%; animation:o1 16s ease-in-out infinite; }
-    .orb-2 { width:36vw; height:36vw; background:radial-gradient(circle,rgba(20,130,170,.22) 0%,transparent 70%); bottom:8%; right:22%; animation:o2 21s ease-in-out infinite; }
-    .orb-3 { width:26vw; height:26vw; background:radial-gradient(circle,rgba(201,169,110,.14) 0%,transparent 70%); bottom:-6%; left:8%; animation:o3 19s ease-in-out infinite; }
-    @keyframes o1 { 0%,100%{transform:translate(0,0) scale(1)} 40%{transform:translate(-3%,5%) scale(1.06)} 70%{transform:translate(3%,-2%) scale(.96)} }
-    @keyframes o2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-5%,-5%) scale(1.08)} }
-    @keyframes o3 { 0%,100%{transform:translate(0,0)} 45%{transform:translate(4%,-4%) scale(1.07)} }
+    .orbs { position:absolute; inset:0; overflow:hidden; pointer-events:none; }
+    .orb { position:absolute; border-radius:50%; filter:blur(90px); }
+    .orb-1 { width:50vw; height:50vw; background:radial-gradient(circle,rgba(180,120,40,.09) 0%,transparent 70%); top:-10%; right:-5%; animation:o1 18s ease-in-out infinite; }
+    .orb-2 { width:35vw; height:35vw; background:radial-gradient(circle,rgba(40,100,180,.06) 0%,transparent 70%); bottom:5%; right:20%; animation:o2 22s ease-in-out infinite; }
+    .orb-3 { width:25vw; height:25vw; background:radial-gradient(circle,rgba(40,160,100,.05) 0%,transparent 70%); bottom:0; left:5%; animation:o3 20s ease-in-out infinite; }
+    @keyframes o1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-3%,4%)} }
+    @keyframes o2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-4%,-4%)} }
+    @keyframes o3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(3%,-3%)} }
 
-    .hero-inner { position:relative; z-index:1; display:flex; align-items:center; gap:3.5rem; }
-    .hero-photo-wrap { flex-shrink:0; opacity:0; animation:fadeIn .8s ease forwards .3s; }
+    .hero-inner { position:relative; z-index:1; display:flex; align-items:center; gap:3rem; max-width:860px; }
+    .hero-photo-wrap { flex-shrink:0; opacity:0; animation:fadeIn .8s ease forwards .2s; }
     .hero-photo {
       width:220px; height:220px; border-radius:50%;
-      border:1.5px solid var(--gold-g);
-      background:var(--surf); overflow:hidden;
-      display:flex; align-items:center; justify-content:center;
-      position:relative; box-shadow:0 0 50px var(--gold-m);
+      border:2px solid var(--bdr); background:var(--surf2);
+      overflow:hidden; display:flex; align-items:center; justify-content:center;
+      position:relative; box-shadow:0 4px 24px rgba(0,0,0,.1);
     }
-    .hero-photo-letters { font-family:'Playfair Display',serif; font-size:3.5rem; font-weight:900; color:var(--gold); opacity:.7; position:relative; z-index:0; }
+    .hero-photo-letters { font-family:'Playfair Display',serif; font-size:3.5rem; font-weight:900; color:var(--gold); opacity:.6; }
     .hero-photo img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1; }
-    .hero-content { flex:1; min-width:0; }
-    .hero-eyebrow { font-size:.7rem; font-weight:500; letter-spacing:.26em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem; opacity:0; animation:fadeUp .8s ease forwards .3s; }
-    .hero-name { font-family:'Playfair Display',serif; font-weight:900; line-height:1; font-size:clamp(2.8rem,5.5vw,5.5rem); letter-spacing:-.02em; color:var(--txt); white-space:nowrap; opacity:0; animation:fadeUp .8s ease forwards .5s; }
-    .hero-name em { font-style:italic; color:var(--gold); }
-    .hero-quote { margin-top:1.25rem; font-family:'JetBrains Mono',monospace; font-size:.78rem; color:var(--txt3); letter-spacing:.04em; opacity:0; animation:fadeUp .8s ease forwards .65s; }
-    .hero-sub { margin-top:1rem; font-size:clamp(.88rem,1.4vw,1.05rem); color:var(--txt2); max-width:500px; line-height:1.75; opacity:0; animation:fadeUp .8s ease forwards .8s; }
-    .hero-cta { margin-top:2.25rem; display:flex; gap:.9rem; flex-wrap:wrap; opacity:0; animation:fadeUp .8s ease forwards 1s; }
 
-    .btn { display:inline-flex; align-items:center; gap:.45rem; padding:.65rem 1.4rem; font-size:.72rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase; text-decoration:none; transition:all .22s; border-radius:1px; }
-    .btn-gold { background:var(--gold); color:var(--bg); }
+    .hero-content { flex:1; min-width:0; }
+    .hero-name {
+      font-family:'Playfair Display',serif; font-weight:900; line-height:1;
+      font-size:clamp(2.8rem,5.5vw,5.5rem); letter-spacing:-.02em; color:var(--txt);
+      white-space:nowrap;
+      opacity:0; animation:fadeUp .7s ease forwards .3s;
+    }
+    .hero-name em { font-style:italic; color:var(--gold); }
+    .hero-role {
+      margin-top:.6rem; font-size:.8rem; font-weight:500;
+      letter-spacing:.14em; text-transform:uppercase; color:var(--txt3);
+      opacity:0; animation:fadeUp .7s ease forwards .45s;
+    }
+    .hero-role strong { color:var(--gold); font-weight:600; }
+    .hero-quote {
+      margin-top:1.25rem; font-family:'JetBrains Mono',monospace;
+      font-size:.75rem; color:var(--txt3); letter-spacing:.03em;
+      opacity:0; animation:fadeUp .7s ease forwards .55s;
+    }
+    .hero-sub {
+      margin-top:.9rem; font-size:clamp(.9rem,1.4vw,1rem);
+      color:var(--txt2); max-width:480px; line-height:1.72;
+      opacity:0; animation:fadeUp .7s ease forwards .68s;
+    }
+    .hero-cta { margin-top:2rem; display:flex; gap:.75rem; flex-wrap:wrap; opacity:0; animation:fadeUp .7s ease forwards .82s; }
+
+    .btn { display:inline-flex; align-items:center; gap:.4rem; padding:.6rem 1.3rem; font-size:.72rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; text-decoration:none; transition:all .2s; border-radius:2px; }
+    .btn-gold { background:var(--gold); color:#fff; }
     .btn-gold:hover { background:var(--gold-b); transform:translateY(-1px); }
-    .btn-ghost { border:1px solid var(--bdr); color:var(--txt3); }
+    .btn-ghost { border:1px solid var(--bdr); color:var(--txt2); }
     .btn-ghost:hover { border-color:var(--gold); color:var(--gold); }
 
-    .hero-scroll { position:absolute; bottom:2.5rem; left:8vw; display:flex; align-items:center; gap:.75rem; color:var(--txt3); font-size:.65rem; letter-spacing:.22em; text-transform:uppercase; opacity:0; animation:fadeIn 1s ease forwards 1.5s; }
-    .scroll-line { width:38px; height:1px; background:var(--txt3); position:relative; overflow:hidden; }
-    .scroll-line::after { content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background:var(--gold); animation:scan 2.2s ease-in-out infinite 1.6s; }
-    @keyframes scan  { 0%{left:-100%} 100%{left:100%} }
-    @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
     @keyframes fadeIn { from{opacity:0} to{opacity:1} }
 
-    /* ── LAYOUT ── */
-    section { padding:7rem 8vw; }
+    /* ── SECTIONS ── */
+    section { padding:5rem 8vw; }
     .sep { border-top:1px solid var(--bdr-s); }
-    .lbl { display:flex; align-items:center; gap:.9rem; font-size:.68rem; font-weight:500; letter-spacing:.26em; text-transform:uppercase; color:var(--gold); margin-bottom:1.25rem; }
-    .lbl::after { content:''; width:2.5rem; height:1px; background:var(--gold); opacity:.4; }
-    .sec-title { font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3.2rem); font-weight:700; line-height:1.15; color:var(--txt); }
+    .lbl { display:flex; align-items:center; gap:.8rem; font-size:.66rem; font-weight:600; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem; }
+    .lbl::after { content:''; width:2rem; height:1.5px; background:var(--gold); opacity:.5; }
+    .sec-title { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,3.5vw,2.8rem); font-weight:700; line-height:1.2; color:var(--txt); }
 
-    /* ── ABOUT ── */
-    .about-grid { display:grid; grid-template-columns:280px 1fr; gap:5rem; align-items:start; margin-top:4rem; }
-    .about-visual { position:sticky; top:6rem; }
-    .avatar { width:100%; aspect-ratio:3/4; background:var(--surf); border:1px solid var(--bdr); display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+    /* ── ABOUT ── tighter, flows from hero ── */
+    #about { padding-top:4rem; padding-bottom:4rem; }
+    .about-grid { display:grid; grid-template-columns:240px 1fr; gap:4rem; align-items:start; margin-top:3rem; }
+    .about-visual { position:sticky; top:5rem; }
+    .avatar { width:100%; aspect-ratio:4/5; background:var(--surf2); border:1px solid var(--bdr); display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; overflow:hidden; }
     .avatar::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,var(--gold-m) 0%,transparent 65%); }
-    .avatar-letters { font-family:'Playfair Display',serif; font-size:4.5rem; font-weight:900; color:var(--gold); opacity:.75; position:relative; z-index:1; }
-    .avatar-cap { position:absolute; bottom:1.25rem; font-size:.6rem; letter-spacing:.22em; text-transform:uppercase; color:var(--txt3); }
-    .bio { font-size:1rem; line-height:1.82; color:var(--txt2); }
-    .bio p + p { margin-top:1.2rem; }
-    .bio strong { color:var(--txt); font-weight:500; }
-    .career-strip { margin-top:2.5rem; border:1px solid var(--bdr-s); background:var(--surf); padding:1.5rem; }
-    .career-strip-title { font-size:.65rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:1.1rem; }
-    .career-line { display:flex; gap:1rem; align-items:baseline; padding:.45rem 0; border-bottom:1px solid var(--bdr-s); }
+    .avatar-letters { font-family:'Playfair Display',serif; font-size:4rem; font-weight:900; color:var(--gold); opacity:.6; position:relative; z-index:1; }
+    .avatar-cap { position:absolute; bottom:1rem; font-size:.58rem; letter-spacing:.2em; text-transform:uppercase; color:var(--txt3); }
+    .bio { font-size:.97rem; line-height:1.8; color:var(--txt2); }
+    .bio p + p { margin-top:1rem; }
+    .bio strong { color:var(--txt); font-weight:600; }
+    .career-strip { margin-top:2rem; border:1px solid var(--bdr); background:var(--surf); padding:1.25rem; }
+    .career-strip-title { font-size:.62rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:.9rem; }
+    .career-line { display:flex; gap:1rem; align-items:baseline; padding:.38rem 0; border-bottom:1px solid var(--bdr-s); }
     .career-line:last-child { border-bottom:none; padding-bottom:0; }
-    .career-year { font-family:'JetBrains Mono',monospace; font-size:.68rem; color:var(--txt3); min-width:75px; }
-    .career-role { font-size:.85rem; color:var(--txt2); }
-    .career-role strong { color:var(--txt); font-weight:500; }
-    .detail-grid { margin-top:2.5rem; display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
-    .detail { border-left:2px solid var(--bdr); padding-left:1rem; }
-    .detail-l { font-size:.62rem; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:var(--txt3); }
-    .detail-v { margin-top:.28rem; font-size:.88rem; color:var(--txt2); }
+    .career-year { font-family:'JetBrains Mono',monospace; font-size:.66rem; color:var(--txt3); min-width:78px; }
+    .career-role { font-size:.84rem; color:var(--txt2); }
+    .career-role strong { color:var(--txt); font-weight:600; }
 
     /* ── WORK / TIMELINE ── */
-    #work { background:var(--surf); }
-    .work-lead { max-width:640px; margin-top:1.25rem; font-size:1rem; color:var(--txt2); line-height:1.78; }
-    .timeline { margin-top:5rem; position:relative; }
-    .timeline::before { content:''; position:absolute; left:0; top:.5rem; width:1px; height:100%; background:linear-gradient(to bottom,var(--gold) 0%,var(--bdr-s) 80%); }
-    .tl-item { padding-left:3rem; padding-bottom:4.5rem; position:relative; opacity:0; transform:translateY(22px); transition:opacity .6s ease,transform .6s ease; }
+    #work { background:var(--surf2); }
+    .work-lead { max-width:600px; margin-top:1rem; font-size:.97rem; color:var(--txt2); line-height:1.75; }
+    .timeline { margin-top:4rem; position:relative; }
+    .timeline::before { content:''; position:absolute; left:0; top:.5rem; width:1.5px; height:100%; background:linear-gradient(to bottom,var(--gold) 0%,var(--bdr) 85%); }
+    .tl-item { padding-left:2.5rem; padding-bottom:3.5rem; position:relative; opacity:0; transform:translateY(18px); transition:opacity .55s ease,transform .55s ease; }
     .tl-item.visible { opacity:1; transform:translateY(0); }
     .tl-item:last-child { padding-bottom:0; }
-    .tl-dot { position:absolute; left:-5px; top:.5rem; width:11px; height:11px; border-radius:50%; background:var(--gold); border:2px solid var(--surf); }
-    .tl-dot.big { width:15px; height:15px; left:-7px; box-shadow:0 0 0 5px var(--gold-m); }
-    .card { background:var(--surf2); border:1px solid var(--bdr); padding:2.25rem; position:relative; transition:border-color .3s; }
-    .card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(to right,var(--gold),transparent); }
-    .card:hover { border-color:var(--gold-g); }
-    .card.flag { border-color:rgba(201,169,110,.2); background:linear-gradient(135deg,rgba(201,169,110,.03) 0%,var(--surf2) 55%); }
-    .card.flag::before { height:3px; background:linear-gradient(to right,var(--gold),rgba(201,169,110,.25),transparent); }
-    .card-meta { display:flex; align-items:center; gap:.9rem; margin-bottom:1.25rem; }
-    .card-date { font-family:'JetBrains Mono',monospace; font-size:.68rem; color:var(--txt3); letter-spacing:.06em; }
-    .badge { font-size:.6rem; font-weight:500; letter-spacing:.16em; text-transform:uppercase; padding:.18rem .55rem; border:1px solid var(--bdr); color:var(--txt3); }
-    .badge.gold { border-color:var(--gold); color:var(--gold); }
-    .card-title { font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; color:var(--txt); line-height:1.1; }
+    .tl-dot { position:absolute; left:-5px; top:.5rem; width:11px; height:11px; border-radius:50%; background:var(--gold); border:2px solid var(--surf2); }
+    .tl-dot.big { width:15px; height:15px; left:-7px; box-shadow:0 0 0 4px var(--gold-m); }
+    .card {
+      background:var(--surf); border:1px solid var(--bdr); padding:1.75rem;
+      position:relative;
+      box-shadow:0 1px 4px rgba(0,0,0,.04);
+      transition:box-shadow .25s, border-color .25s;
+    }
+    .card:hover { box-shadow:0 4px 16px rgba(0,0,0,.08); border-color:var(--gold-g); }
+    .card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(to right,var(--gold),transparent 60%); }
+    .card.flag { border-color:var(--gold-g); }
+    .card.flag::before { opacity:1; }
+    .card-meta { display:flex; align-items:center; gap:.75rem; margin-bottom:1rem; }
+    .card-date { font-family:'JetBrains Mono',monospace; font-size:.66rem; color:var(--txt3); }
+    .badge { font-size:.58rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; padding:.18rem .55rem; border:1px solid var(--bdr); color:var(--txt3); }
+    .badge.gold { border-color:var(--gold); color:var(--gold); background:var(--gold-m); }
+    .card-title { font-family:'Playfair Display',serif; font-size:1.7rem; font-weight:700; color:var(--txt); line-height:1.1; }
     .card-title em { font-style:italic; color:var(--gold); }
-    .card-tag { margin-top:.5rem; font-size:.9rem; color:var(--txt2); }
-    .card-desc { margin-top:1.4rem; font-size:.92rem; line-height:1.78; color:var(--txt2); }
-    .metrics { margin-top:1.8rem; display:flex; flex-wrap:wrap; gap:1px; background:var(--bdr-s); }
-    .met { background:var(--surf); padding:.7rem 1.1rem; flex:1; min-width:90px; }
-    .met-v { font-family:'JetBrains Mono',monospace; font-size:1.05rem; font-weight:500; color:var(--gold); }
-    .met-l { font-size:.6rem; letter-spacing:.1em; text-transform:uppercase; color:var(--txt3); margin-top:.12rem; }
-    .card-links { margin-top:1.8rem; display:flex; gap:.65rem; flex-wrap:wrap; }
-    .card-link { display:inline-flex; align-items:center; gap:.35rem; font-size:.68rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase; text-decoration:none; color:var(--txt3); border:1px solid var(--bdr); padding:.4rem .85rem; transition:all .2s; }
+    .card-tag { margin-top:.4rem; font-size:.88rem; color:var(--txt2); font-weight:500; }
+    .card-desc { margin-top:1rem; font-size:.9rem; line-height:1.75; color:var(--txt2); }
+    .card-links { margin-top:1.25rem; display:flex; gap:.5rem; flex-wrap:wrap; }
+    .card-link { display:inline-flex; align-items:center; gap:.3rem; font-size:.66rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; text-decoration:none; color:var(--txt3); border:1px solid var(--bdr); padding:.35rem .75rem; transition:all .2s; }
     .card-link:hover { color:var(--gold); border-color:var(--gold); }
-    .card-link svg { width:12px; height:12px; flex-shrink:0; }
+    .card-link svg { width:11px; height:11px; flex-shrink:0; }
 
     /* ── PUBLICATIONS ── */
-    .pub-grid { margin-top:3.5rem; display:flex; flex-direction:column; gap:1px; background:var(--bdr-s); border:1px solid var(--bdr-s); }
-    .pub-item {
-      background:var(--surf); display:grid;
-      grid-template-columns:130px auto 1fr auto;
-      gap:0; align-items:stretch; transition:background .25s;
-    }
-    .pub-item:hover { background:var(--surf2); }
-
-    /* Paper thumbnail */
+    .pub-grid { margin-top:3rem; display:flex; flex-direction:column; gap:1px; background:var(--bdr); border:1px solid var(--bdr); overflow:hidden; }
+    .pub-item { background:var(--surf); display:grid; grid-template-columns:160px 1fr; align-items:stretch; transition:background .2s; }
+    .pub-item:hover { background:#fafaf7; }
     .pub-thumb {
-      width:130px; flex-shrink:0;
+      width:160px; overflow:hidden; position:relative;
+      background:var(--surf2);
       display:flex; align-items:center; justify-content:center;
-      overflow:hidden; position:relative;
     }
-    .pub-thumb svg { width:48px; height:48px; opacity:.55; }
-    .pub-thumb-ltx2   { background:linear-gradient(145deg,#0c0618 0%,#1a0a3a 60%,#0a1828 100%); }
-    .pub-thumb-ltxv   { background:linear-gradient(145deg,#060c18 0%,#0a1a30 60%,#060a14 100%); }
-    .pub-thumb-loops  { background:linear-gradient(145deg,#060c08 0%,#081a10 60%,#060a08 100%); }
-    .pub-thumb-sky    { background:linear-gradient(180deg,#060e18 0%,#0a1828 50%,#14100a 100%); }
-    .pub-thumb-arma   { background:linear-gradient(145deg,#100608 0%,#200a14 60%,#100608 100%); }
-
-    .pub-meta { padding:1.5rem 0 1.5rem 1.5rem; display:flex; flex-direction:column; justify-content:center; min-width:52px; border-right:1px solid var(--bdr-s); }
-    .pub-year { font-family:'JetBrains Mono',monospace; font-size:.68rem; color:var(--txt3); writing-mode:vertical-rl; transform:rotate(180deg); letter-spacing:.08em; }
-    .pub-body { padding:1.5rem; }
-    .pub-venue { display:inline-block; font-size:.6rem; font-weight:500; letter-spacing:.14em; text-transform:uppercase; padding:.15rem .5rem; border:1px solid var(--bdr); color:var(--txt3); margin-bottom:.6rem; }
+    .pub-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+    .pub-thumb-fallback {
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      gap:.4rem; padding:1rem; text-align:center; width:100%; height:100%;
+    }
+    .pub-thumb-fallback .ft-year { font-family:'JetBrains Mono',monospace; font-size:1.4rem; font-weight:500; color:var(--gold); opacity:.7; }
+    .pub-thumb-fallback .ft-venue { font-size:.6rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--txt3); }
+    .pub-body { padding:1.5rem; display:flex; flex-direction:column; justify-content:center; gap:.4rem; border-left:1px solid var(--bdr-s); }
+    .pub-top { display:flex; align-items:center; gap:.75rem; flex-wrap:wrap; }
+    .pub-venue { font-size:.6rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; padding:.15rem .5rem; border:1px solid var(--bdr); color:var(--txt3); }
     .pub-venue.top { border-color:var(--gold); color:var(--gold); }
-    .pub-title { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--txt); line-height:1.3; }
-    .pub-authors { margin-top:.35rem; font-size:.8rem; color:var(--txt3); line-height:1.5; }
-    .pub-authors strong { color:var(--gold); font-weight:500; }
-    .pub-action { padding:1.5rem; display:flex; align-items:center; border-left:1px solid var(--bdr-s); }
-    .pub-link { display:flex; align-items:center; gap:.3rem; font-size:.68rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; text-decoration:none; color:var(--txt3); border:1px solid var(--bdr); padding:.4rem .75rem; white-space:nowrap; transition:all .2s; }
-    .pub-link:hover { color:var(--gold); border-color:var(--gold); }
-    .pub-link svg { width:11px; height:11px; }
+    .pub-year-tag { font-family:'JetBrains Mono',monospace; font-size:.66rem; color:var(--txt3); }
+    .pub-title { font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; color:var(--txt); line-height:1.35; }
+    .pub-authors { font-size:.78rem; color:var(--txt3); line-height:1.5; }
+    .pub-authors strong { color:var(--gold); font-weight:600; }
+    .pub-link { display:inline-flex; align-items:center; gap:.3rem; margin-top:.4rem; font-size:.66rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; text-decoration:none; color:var(--txt3); transition:color .2s; align-self:flex-start; }
+    .pub-link:hover { color:var(--gold); }
+    .pub-link svg { width:10px; height:10px; }
 
     /* ── PRESS ── */
-    .press-grid { margin-top:3.5rem; display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--bdr-s); border:1px solid var(--bdr-s); }
-    .press-item { background:var(--surf); display:flex; flex-direction:column; transition:background .25s; overflow:hidden; }
-    .press-item:hover { background:var(--surf2); }
-
-    /* Visual header strip for each press card */
-    .press-visual {
-      height:80px; position:relative; overflow:hidden;
-      display:flex; align-items:center; justify-content:center; flex-shrink:0;
-    }
-    .press-visual svg { width:28px; height:28px; opacity:.6; position:relative; z-index:1; }
-    .press-visual-podcast  { background:linear-gradient(135deg,#0e0818 0%,#1a0a28 50%,#0a0e18 100%); }
-    .press-visual-article  { background:linear-gradient(135deg,#06100e 0%,#0a1e1a 50%,#060e0c 100%); }
-    .press-visual-casestudy{ background:linear-gradient(135deg,#06080e 0%,#0a1028 50%,#060810 100%); }
-
-    /* Waveform decoration in podcast visual */
-    .press-visual::before {
-      content:''; position:absolute; inset:0;
-      background-image: repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(201,169,110,.06) 3px, rgba(201,169,110,.06) 4px);
-    }
-    .press-body { padding:1.5rem; display:flex; flex-direction:column; gap:.7rem; flex:1; }
-    .press-type { display:flex; align-items:center; gap:.5rem; font-size:.62rem; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); }
-    .press-type svg { width:13px; height:13px; }
-    .press-title { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--txt); line-height:1.3; }
-    .press-desc { font-size:.85rem; color:var(--txt2); line-height:1.65; flex:1; }
-    .press-link { display:inline-flex; align-items:center; gap:.35rem; font-size:.68rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; text-decoration:none; color:var(--txt3); transition:color .2s; align-self:flex-start; }
-    .press-link svg { width:11px; height:11px; }
+    .press-grid { margin-top:3rem; display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--bdr); border:1px solid var(--bdr); overflow:hidden; }
+    .press-item { background:var(--surf); display:flex; flex-direction:column; transition:background .2s; overflow:hidden; }
+    .press-item:hover { background:#fafaf7; }
+    .press-visual { height:70px; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .press-visual svg { width:24px; height:24px; color:var(--txt3); position:relative; z-index:1; }
+    .press-visual-podcast  { background:linear-gradient(135deg,#f5f0e8 0%,#ede8dc 100%); }
+    .press-visual-article  { background:linear-gradient(135deg,#edf5f0 0%,#e0ede6 100%); }
+    .press-visual-casestudy{ background:linear-gradient(135deg,#edf0f5 0%,#e0e6ed 100%); }
+    .press-visual::before { content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(90deg,transparent,transparent 6px,rgba(0,0,0,.03) 6px,rgba(0,0,0,.03) 7px); }
+    .press-body { padding:1.4rem; display:flex; flex-direction:column; gap:.6rem; flex:1; border-top:1px solid var(--bdr-s); }
+    .press-type { display:flex; align-items:center; gap:.4rem; font-size:.6rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); }
+    .press-type svg { width:12px; height:12px; }
+    .press-title { font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; color:var(--txt); line-height:1.3; }
+    .press-desc { font-size:.84rem; color:var(--txt2); line-height:1.62; flex:1; }
+    .press-link { display:inline-flex; align-items:center; gap:.3rem; font-size:.66rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; text-decoration:none; color:var(--txt3); transition:color .2s; align-self:flex-start; }
+    .press-link svg { width:10px; height:10px; }
     .press-link:hover { color:var(--gold); }
 
     /* ── FOOTER ── */
-    footer { border-top:1px solid var(--bdr-s); padding:2.5rem 8vw; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.5rem; }
+    footer { border-top:1px solid var(--bdr); padding:2rem 8vw; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.5rem; background:var(--surf); }
     .foot-name { font-family:'Playfair Display',serif; font-size:.95rem; font-weight:700; color:var(--txt); }
     .foot-links { display:flex; gap:1.5rem; list-style:none; align-items:center; }
-    .foot-links a { font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--txt3); text-decoration:none; transition:color .2s; }
+    .foot-links a { font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--txt3); text-decoration:none; transition:color .2s; }
     .foot-links a:hover { color:var(--gold); }
     .foot-links .fi-ico { display:flex; }
     .foot-links .fi-ico svg { width:15px; height:15px; }
     .foot-copy { font-size:.72rem; color:var(--txt3); }
 
     /* ── FADE-IN ── */
-    .fi { opacity:0; transform:translateY(18px); transition:opacity .65s ease,transform .65s ease; }
+    .fi { opacity:0; transform:translateY(16px); transition:opacity .6s ease,transform .6s ease; }
     .fi.visible { opacity:1; transform:translateY(0); }
 
     /* ── RESPONSIVE ── */
     @media (max-width:900px) {
-      .about-grid { grid-template-columns:1fr; gap:3rem; }
-      .about-visual { position:static; max-width:240px; }
+      .about-grid { grid-template-columns:1fr; gap:2.5rem; }
+      .about-visual { position:static; max-width:200px; }
       .press-grid { grid-template-columns:1fr; }
       .nav-links .hide-sm { display:none; }
-      .pub-item { grid-template-columns:90px auto 1fr auto; }
-      .pub-thumb { width:90px; }
     }
     @media (max-width:640px) {
-      nav { padding:1rem 1.5rem; }
-      .nav-links { gap:1rem; }
-      section { padding:5rem 6vw; }
+      nav { padding:.9rem 1.5rem; }
+      .nav-links { gap:.9rem; }
+      section { padding:4rem 6vw; }
       .hero { padding:6rem 6vw 3rem; }
       .hero-inner { flex-direction:column; gap:1.5rem; align-items:flex-start; }
-      .hero-photo { width:120px; height:120px; }
-      .hero-photo-letters { font-size:2.2rem; }
-      .hero-name { white-space:normal; font-size:clamp(2.4rem,10vw,3.5rem); }
-      .pub-item { grid-template-columns:1fr auto; }
-      .pub-thumb, .pub-meta { display:none; }
-      .pub-body { padding:1.25rem; }
-      .pub-action { padding:1.25rem; }
-      .detail-grid { grid-template-columns:1fr; }
-      .metrics { flex-direction:column; }
+      .hero-photo { width:110px; height:110px; }
+      .hero-photo-letters { font-size:2rem; }
+      .hero-name { white-space:normal; font-size:clamp(2.2rem,10vw,3.2rem); }
+      .pub-item { grid-template-columns:1fr; }
+      .pub-thumb { width:100%; height:140px; }
       footer { flex-direction:column; align-items:flex-start; }
     }
   </style>
@@ -321,8 +305,8 @@
       </div>
     </div>
     <div class="hero-content">
-      <p class="hero-eyebrow">VP of Research &nbsp;·&nbsp; Lightricks</p>
       <h1 class="hero-name">Ofir <em>Bibi</em></h1>
+      <p class="hero-role"><strong>VP Research</strong> &nbsp;·&nbsp; Lightricks</p>
       <p class="hero-quote">// Poke, tinker, prod and tweak. Repeat.</p>
       <p class="hero-sub">
         Building the foundation of generative video — from efficient open-source models to production systems reaching millions of creators worldwide.
@@ -334,13 +318,12 @@
       </div>
     </div>
   </div>
-  <div class="hero-scroll"><div class="scroll-line"></div>Scroll</div>
 </div>
 
 <!-- ABOUT -->
 <section id="about" class="sep">
   <div class="lbl">About</div>
-  <h2 class="sec-title">Research &amp;<br>Leadership</h2>
+  <h2 class="sec-title">Research &amp; Leadership</h2>
   <div class="about-grid">
     <div class="about-visual">
       <div class="avatar">
@@ -351,32 +334,29 @@
     <div class="fi">
       <div class="bio">
         <p>
-          Ofir Bibi is the <strong>VP of Research at Lightricks</strong>, where he leads the development of generative video models and applications. His team built <strong>LTX-2</strong>, a state-of-the-art open-source video generation model, and now focuses on the application layers that bring it to market.
+          Ofir Bibi is the <strong>VP Research at Lightricks</strong>, where he leads the development of generative video models and applications. His team built <strong>LTX-2</strong>, the first open-source audio-video foundation model, and now focuses on the application layers that bring it to market.
         </p>
         <p>
-          Ofir drives both the technical innovation and open-source community strategy that position Lightricks at the forefront of generative media. His work bridges fundamental ML research with practical product deployment, creating efficient pipelines that deliver the latest advances in generative AI to millions of users.
-        </p>
-        <p>
-          Born and raised in <strong>Jerusalem</strong>, he's always been a tinkerer — taking apart radios, building things, and asking how they work. That instinct now drives some of the most efficient video generation models ever built.
+          Ofir drives both technical innovation and open-source community strategy, bridging fundamental ML research with practical product deployment. Born and raised in <strong>Jerusalem</strong>, he's always been a tinkerer — taking apart radios and asking how things work. That instinct now drives some of the most efficient video generation models ever built.
         </p>
       </div>
       <div class="career-strip fi">
-        <div class="career-strip-title">Career Timeline</div>
+        <div class="career-strip-title">Career</div>
         <div class="career-line">
           <span class="career-year">2015 – now</span>
-          <span class="career-role"><strong>Lightricks</strong> — Senior Researcher → Director → VP Research</span>
+          <span class="career-role"><strong>Lightricks</strong> — Researcher → Director → VP Research</span>
         </div>
         <div class="career-line">
           <span class="career-year">2009 – 2015</span>
-          <span class="career-role"><strong>BrightSource Energy</strong> — ML Engineer &amp; Algorithms Developer</span>
+          <span class="career-role"><strong>BrightSource Energy</strong> — ML Engineer</span>
         </div>
         <div class="career-line">
           <span class="career-year">2009 – 2014</span>
-          <span class="career-role"><strong>Hebrew University</strong> — PhD, Neural Computation (ELSC/ICNC)</span>
+          <span class="career-role"><strong>Hebrew University</strong> — PhD, Neural Computation</span>
         </div>
         <div class="career-line">
           <span class="career-year">2006 – 2009</span>
-          <span class="career-role"><strong>Hebrew University</strong> — BSc, Physics &amp; Computer Science</span>
+          <span class="career-role"><strong>Hebrew University</strong> — BSc, Physics &amp; CS</span>
         </div>
         <div class="career-line">
           <span class="career-year">2001 – 2006</span>
@@ -387,17 +367,17 @@
   </div>
 </section>
 
-<!-- WORK — most recent first -->
+<!-- WORK — most recent first, achievement-focused -->
 <section id="work" class="sep">
   <div class="lbl">Selected Work</div>
-  <h2 class="sec-title">The LTXV<br>Journey</h2>
+  <h2 class="sec-title">The LTXV Journey</h2>
   <p class="work-lead">
     From the world's first real-time open-source video model to a complete audio-video foundation model — a two-year sprint to the frontier of generative media.
   </p>
 
   <div class="timeline">
 
-    <!-- LTX-2 FLAGSHIP — most recent -->
+    <!-- LTX-2 — most recent, flagship -->
     <div class="tl-item">
       <div class="tl-dot big"></div>
       <div class="card flag">
@@ -406,16 +386,10 @@
           <span class="badge gold">Flagship · Open Source</span>
         </div>
         <h3 class="card-title">LTX-<em>2</em></h3>
-        <p class="card-tag">The first complete open-source audio-video foundation model</p>
+        <p class="card-tag">First open-source model to generate synchronized 4K audio and video</p>
         <p class="card-desc">
-          LTX-2 marks a category-defining milestone: the first production-ready model combining native audio and video generation with fully open weights, training code, and inference code. Its 19B-parameter Asymmetric Dual-Stream Diffusion Transformer uses 14B for the video stream and 5B for audio, with bidirectional cross-attention layers synchronizing both modalities in a single unified pass. Generates up to 20 seconds of synchronized audio-video at native 4K and 50 fps on consumer hardware. In human preference studies it performs comparably to Sora 2 and Veo 3, while significantly outperforming all open-source alternatives. Announced with NVIDIA at CES 2026 — Lightricks' "DeepSeek moment."
+          Announced with NVIDIA at CES 2026, LTX-2 was the first production-ready model to combine native audio and video generation with fully open weights, training code, and inference code — a milestone the industry called Lightricks' "DeepSeek moment." In human preference studies it performs comparably to Sora 2 and Veo 3, while running at 18× the speed of comparable open models. For the first time, anyone could train their own audio-visual IP directly into a foundation model.
         </p>
-        <div class="metrics">
-          <div class="met"><div class="met-v">19B</div><div class="met-l">Parameters</div></div>
-          <div class="met"><div class="met-v">4K</div><div class="met-l">Native Resolution</div></div>
-          <div class="met"><div class="met-v">20s</div><div class="met-l">Max @ 50 fps</div></div>
-          <div class="met"><div class="met-v">18×</div><div class="met-l">Faster vs Wan2.2</div></div>
-        </div>
         <div class="card-links">
           <a href="https://github.com/Lightricks/LTX-2" class="card-link" target="_blank" rel="noopener"><svg><use href="#ico-gh"/></svg>GitHub</a>
           <a href="https://huggingface.co/Lightricks/LTX-2" class="card-link" target="_blank" rel="noopener">🤗 HuggingFace</a>
@@ -434,15 +408,10 @@
           <span class="badge">Breakthrough</span>
         </div>
         <h3 class="card-title">LTX-Video <em>13B</em></h3>
-        <p class="card-tag">Multiscale rendering — 30× faster than comparable models</p>
+        <p class="card-tag">Made high-quality AI video accessible on consumer hardware</p>
         <p class="card-desc">
-          The 13B-parameter iteration introduced <strong>multiscale rendering</strong>: the model first drafts motion and structure at low resolution, then progressively adds detail in subsequent passes — dramatically cutting compute without sacrificing quality. Users can compose the distilled and dev variants in a single multiscale workflow. This architecture made high-quality AI video generation accessible on consumer hardware, achieving generation times of 37 seconds versus over 1,491 seconds for comparable competing models.
+          The 13B model introduced multiscale rendering — drafting motion coarsely first, then progressively refining detail — achieving speeds 30× faster than competing models of comparable size. What previously required $10,000 enterprise GPUs now ran on a consumer RTX card: 37 seconds to generate what took rivals over 25 minutes.
         </p>
-        <div class="metrics">
-          <div class="met"><div class="met-v">13B</div><div class="met-l">Parameters</div></div>
-          <div class="met"><div class="met-v">30×</div><div class="met-l">Speed vs peers</div></div>
-          <div class="met"><div class="met-v">37s</div><div class="met-l">vs 1,491s (rival)</div></div>
-        </div>
         <div class="card-links">
           <a href="https://github.com/Lightricks/LTX-Video" class="card-link" target="_blank" rel="noopener"><svg><use href="#ico-gh"/></svg>GitHub</a>
           <a href="https://venturebeat.com/ai/lightricks-just-made-ai-video-generation-30x-faster-and-you-wont-need-a-10000-gpu" class="card-link" target="_blank" rel="noopener"><svg><use href="#ico-link"/></svg>VentureBeat</a>
@@ -450,7 +419,7 @@
       </div>
     </div>
 
-    <!-- LTX-Video 0.9 — oldest -->
+    <!-- LTX-Video — oldest -->
     <div class="tl-item">
       <div class="tl-dot"></div>
       <div class="card">
@@ -459,16 +428,10 @@
           <span class="badge">Open Source</span>
         </div>
         <h3 class="card-title">LTX-<em>Video</em></h3>
-        <p class="card-tag">The world's first real-time open-source video generation model</p>
+        <p class="card-tag">First open-source video model to run faster than real-time</p>
         <p class="card-desc">
-          LTXV launched as the first open-source video diffusion model capable of generating video faster than real-time. At 2B parameters it ran on consumer GPUs, introducing motion consistency techniques that reduced visual artifacts common in video diffusion. Its tight integration between Video-VAE and denoising transformer — with a 1:192 spatiotemporal compression ratio — enabled full spatiotemporal self-attention across all frames simultaneously. Available on HuggingFace and GitHub, it reached 9,300+ stars and seeded a global developer community. Trained on Google Cloud TPUs, cutting a six-month timeline to four.
+          LTXV was the first open-source video model to generate a 5-second clip in under 4 seconds — faster than the video plays back. Released with full weights and training code, it seeded a global developer community that reached 9,300+ GitHub stars and integrations into ComfyUI, Diffusers, and major creative platforms. Training on Google Cloud TPUs cut a six-month development timeline to four.
         </p>
-        <div class="metrics">
-          <div class="met"><div class="met-v">2B</div><div class="met-l">Parameters</div></div>
-          <div class="met"><div class="met-v">&lt;4s</div><div class="met-l">Per 5s clip (H100)</div></div>
-          <div class="met"><div class="met-v">9.3K+</div><div class="met-l">GitHub Stars</div></div>
-          <div class="met"><div class="met-v">1:192</div><div class="met-l">VAE Compression</div></div>
-        </div>
         <div class="card-links">
           <a href="https://github.com/Lightricks/LTX-Video" class="card-link" target="_blank" rel="noopener"><svg><use href="#ico-gh"/></svg>GitHub</a>
           <a href="https://huggingface.co/Lightricks/LTX-Video" class="card-link" target="_blank" rel="noopener">🤗 HuggingFace</a>
@@ -487,153 +450,101 @@
 
   <div class="pub-grid fi">
 
-    <!-- LTX-2 -->
     <div class="pub-item">
-      <div class="pub-thumb pub-thumb-ltx2">
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Audio waveform -->
-          <rect x="4"  y="20" width="3" height="8"  rx="1.5" fill="#c9a96e" opacity=".8"/>
-          <rect x="10" y="15" width="3" height="18" rx="1.5" fill="#c9a96e"/>
-          <rect x="16" y="10" width="3" height="28" rx="1.5" fill="#c9a96e" opacity=".9"/>
-          <rect x="22" y="17" width="3" height="14" rx="1.5" fill="#c9a96e" opacity=".7"/>
-          <rect x="28" y="12" width="3" height="24" rx="1.5" fill="#c9a96e"/>
-          <rect x="34" y="18" width="3" height="12" rx="1.5" fill="#c9a96e" opacity=".8"/>
-          <rect x="40" y="22" width="3" height="6"  rx="1.5" fill="#c9a96e" opacity=".6"/>
-          <!-- Video frame outline -->
-          <rect x="5" y="5" width="38" height="38" rx="3" stroke="#c9a96e" stroke-width=".5" stroke-dasharray="3 3" fill="none" opacity=".3"/>
-        </svg>
+      <div class="pub-thumb">
+        <img src="https://image.thum.io/get/width/320/crop/220/noanimate/https://arxiv.org/html/2601.03233"
+             alt="LTX-2 paper" loading="lazy"
+             onerror="this.style.display='none'">
+        <div class="pub-thumb-fallback"><span class="ft-year">2026</span><span class="ft-venue">arXiv</span></div>
       </div>
-      <div class="pub-meta"><span class="pub-year">2026</span></div>
       <div class="pub-body">
-        <div class="pub-venue top">arXiv</div>
+        <div class="pub-top">
+          <span class="pub-venue top">arXiv</span>
+          <span class="pub-year-tag">2026</span>
+        </div>
         <div class="pub-title">LTX-2: Efficient Joint Audio-Visual Foundation Model</div>
         <div class="pub-authors"><strong>Ofir Bibi</strong>, Yoav HaCohen, Benny Brazowski, Nisan Chiprut, et al.</div>
-      </div>
-      <div class="pub-action">
-        <a href="https://arxiv.org/abs/2601.03233" class="pub-link" target="_blank" rel="noopener"><svg><use href="#ico-link"/></svg>arXiv</a>
+        <a href="https://arxiv.org/abs/2601.03233" class="pub-link" target="_blank" rel="noopener">Read paper <svg><use href="#ico-link"/></svg></a>
       </div>
     </div>
 
-    <!-- LTX-Video -->
     <div class="pub-item">
-      <div class="pub-thumb pub-thumb-ltxv">
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Film strip -->
-          <rect x="6"  y="8"  width="36" height="32" rx="2" stroke="#7ec8e3" stroke-width=".8" fill="none" opacity=".5"/>
-          <rect x="6"  y="8"  width="36" height="9"  rx="2" fill="#7ec8e3" opacity=".12"/>
-          <rect x="6"  y="31" width="36" height="9"  rx="2" fill="#7ec8e3" opacity=".12"/>
-          <!-- Sprocket holes -->
-          <rect x="9"  y="10" width="3" height="5" rx="1" fill="#7ec8e3" opacity=".5"/>
-          <rect x="16" y="10" width="3" height="5" rx="1" fill="#7ec8e3" opacity=".5"/>
-          <rect x="23" y="10" width="3" height="5" rx="1" fill="#7ec8e3" opacity=".5"/>
-          <rect x="30" y="10" width="3" height="5" rx="1" fill="#7ec8e3" opacity=".5"/>
-          <rect x="37" y="10" width="3" height="5" rx="1" fill="#7ec8e3" opacity=".5"/>
-          <rect x="9"  y="33" width="3" height="5" rx="1" fill="#7ec8e3" opacity=".5"/>
-          <rect x="16" y="33" width="3" height="5" rx="1" fill="#7ec8e3" opacity=".5"/>
-          <rect x="23" y="33" width="3" height="5" rx="1" fill="#7ec8e3" opacity=".5"/>
-          <rect x="30" y="33" width="3" height="5" rx="1" fill="#7ec8e3" opacity=".5"/>
-          <rect x="37" y="33" width="3" height="5" rx="1" fill="#7ec8e3" opacity=".5"/>
-          <!-- Play button -->
-          <polygon points="19,20 19,28 31,24" fill="#7ec8e3" opacity=".7"/>
-        </svg>
+      <div class="pub-thumb">
+        <img src="https://image.thum.io/get/width/320/crop/220/noanimate/https://arxiv.org/html/2501.00103"
+             alt="LTX-Video paper" loading="lazy"
+             onerror="this.style.display='none'">
+        <div class="pub-thumb-fallback"><span class="ft-year">2025</span><span class="ft-venue">arXiv</span></div>
       </div>
-      <div class="pub-meta"><span class="pub-year">2025</span></div>
       <div class="pub-body">
-        <div class="pub-venue top">arXiv</div>
+        <div class="pub-top">
+          <span class="pub-venue top">arXiv</span>
+          <span class="pub-year-tag">2025</span>
+        </div>
         <div class="pub-title">LTX-Video: Realtime Video Latent Diffusion</div>
         <div class="pub-authors"><strong>Ofir Bibi</strong>, Yoav HaCohen, Nisan Chiprut, Benny Brazowski, Daniel Shalem, et al.</div>
-      </div>
-      <div class="pub-action">
-        <a href="https://arxiv.org/abs/2501.00103" class="pub-link" target="_blank" rel="noopener"><svg><use href="#ico-link"/></svg>arXiv</a>
+        <a href="https://arxiv.org/abs/2501.00103" class="pub-link" target="_blank" rel="noopener">Read paper <svg><use href="#ico-link"/></svg></a>
       </div>
     </div>
 
-    <!-- Endless Loops -->
     <div class="pub-item">
-      <div class="pub-thumb pub-thumb-loops">
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="24" cy="24" r="16" stroke="#6ee4a0" stroke-width=".8" opacity=".5"/>
-          <circle cx="24" cy="24" r="10" stroke="#6ee4a0" stroke-width=".8" opacity=".4"/>
-          <circle cx="24" cy="24" r="4"  fill="#6ee4a0" opacity=".5"/>
-          <!-- Rotating arrow arcs -->
-          <path d="M24 8 A16 16 0 0 1 40 24" stroke="#6ee4a0" stroke-width="1.5" stroke-linecap="round" opacity=".8"/>
-          <path d="M40 24 A16 16 0 0 1 8 24" stroke="#6ee4a0" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
-          <path d="M8 24 A16 16 0 0 1 24 8" stroke="#6ee4a0" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3 3" opacity=".4"/>
-          <!-- Arrow head -->
-          <polygon points="24,5 20,10 28,10" fill="#6ee4a0" opacity=".8"/>
-        </svg>
+      <div class="pub-thumb">
+        <img src="https://image.thum.io/get/width/320/crop/220/noanimate/https://pub.res.lightricks.com/endless-loops/"
+             alt="Endless Loops paper" loading="lazy"
+             onerror="this.style.display='none'">
+        <div class="pub-thumb-fallback"><span class="ft-year">2021</span><span class="ft-venue">SIGGRAPH</span></div>
       </div>
-      <div class="pub-meta"><span class="pub-year">2021</span></div>
       <div class="pub-body">
-        <div class="pub-venue top">SIGGRAPH</div>
+        <div class="pub-top">
+          <span class="pub-venue top">SIGGRAPH 2021</span>
+          <span class="pub-year-tag">2021</span>
+        </div>
         <div class="pub-title">Endless Loops: Detecting and Animating Periodic Patterns in Still Images</div>
         <div class="pub-authors">Tavi Halperin, Hanit Hakim, Orestis Vantzos, Gershon Hochman, Netai Benaim, Lior Sassy, Michael Kupchik, Ohad Fried, <strong>Ofir Bibi</strong></div>
-      </div>
-      <div class="pub-action">
-        <a href="https://arxiv.org/abs/2105.09374" class="pub-link" target="_blank" rel="noopener"><svg><use href="#ico-link"/></svg>arXiv</a>
+        <a href="https://arxiv.org/abs/2105.09374" class="pub-link" target="_blank" rel="noopener">Read paper <svg><use href="#ico-link"/></svg></a>
       </div>
     </div>
 
-    <!-- Clear Skies -->
     <div class="pub-item">
-      <div class="pub-thumb pub-thumb-sky">
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Sky gradient layers -->
-          <rect x="6" y="6"  width="36" height="36" rx="2" fill="none" stroke="#7ec8e3" stroke-width=".5" opacity=".3"/>
-          <!-- Sun -->
-          <circle cx="32" cy="14" r="5" fill="#e0c080" opacity=".6"/>
-          <line x1="32" y1="7"  x2="32" y2="5"  stroke="#e0c080" stroke-width="1" opacity=".4"/>
-          <line x1="32" y1="21" x2="32" y2="23" stroke="#e0c080" stroke-width="1" opacity=".4"/>
-          <line x1="25" y1="14" x2="23" y2="14" stroke="#e0c080" stroke-width="1" opacity=".4"/>
-          <line x1="39" y1="14" x2="41" y2="14" stroke="#e0c080" stroke-width="1" opacity=".4"/>
-          <!-- Horizon line -->
-          <line x1="6" y1="30" x2="42" y2="30" stroke="#7ec8e3" stroke-width=".8" opacity=".5"/>
-          <!-- Clouds -->
-          <ellipse cx="16" cy="22" rx="7" ry="3" fill="#7ec8e3" opacity=".25"/>
-          <ellipse cx="20" cy="21" rx="5" ry="2" fill="#7ec8e3" opacity=".2"/>
-          <!-- Ground -->
-          <rect x="6" y="30" width="36" height="12" rx="1" fill="#c9a96e" opacity=".08"/>
-        </svg>
+      <div class="pub-thumb">
+        <img src="https://image.thum.io/get/width/320/crop/220/noanimate/https://arxiv.org/html/1903.02582"
+             alt="Clear Skies paper" loading="lazy"
+             onerror="this.style.display='none'">
+        <div class="pub-thumb-fallback"><span class="ft-year">2019</span><span class="ft-venue">CGF</span></div>
       </div>
-      <div class="pub-meta"><span class="pub-year">2019</span></div>
       <div class="pub-body">
-        <div class="pub-venue">CGF</div>
+        <div class="pub-top">
+          <span class="pub-venue">CGF</span>
+          <span class="pub-year-tag">2019</span>
+        </div>
         <div class="pub-title">Clear Skies Ahead: Towards Real-Time Automatic Sky Replacement in Video</div>
         <div class="pub-authors">Tavi Halperin, Harel Cain, <strong>Ofir Bibi</strong>, Michael Werman — Computer Graphics Forum, Vol. 38</div>
-      </div>
-      <div class="pub-action">
-        <a href="https://arxiv.org/abs/1903.02582" class="pub-link" target="_blank" rel="noopener"><svg><use href="#ico-link"/></svg>arXiv</a>
+        <a href="https://arxiv.org/abs/1903.02582" class="pub-link" target="_blank" rel="noopener">Read paper <svg><use href="#ico-link"/></svg></a>
       </div>
     </div>
 
-    <!-- IEEE ARMA -->
     <div class="pub-item">
-      <div class="pub-thumb pub-thumb-arma">
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Signal waveform -->
-          <polyline points="4,24 8,24 10,12 12,36 16,18 18,30 22,14 24,34 28,20 30,28 34,16 36,32 38,22 40,26 44,24"
-            stroke="#e07070" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/>
-          <!-- Axes -->
-          <line x1="4" y1="24" x2="44" y2="24" stroke="#e07070" stroke-width=".5" opacity=".3"/>
-          <line x1="4" y1="8"  x2="4"  y2="40" stroke="#e07070" stroke-width=".5" opacity=".3"/>
-        </svg>
+      <div class="pub-thumb">
+        <img src="https://image.thum.io/get/width/320/crop/220/noanimate/https://www.cs.huji.ac.il/~amiw/wiesel_arma.pdf"
+             alt="IEEE TSP paper" loading="lazy"
+             onerror="this.style.display='none'">
+        <div class="pub-thumb-fallback"><span class="ft-year">2013</span><span class="ft-venue">IEEE TSP</span></div>
       </div>
-      <div class="pub-meta"><span class="pub-year">2013</span></div>
       <div class="pub-body">
-        <div class="pub-venue top">IEEE TSP</div>
+        <div class="pub-top">
+          <span class="pub-venue top">IEEE TSP</span>
+          <span class="pub-year-tag">2013</span>
+        </div>
         <div class="pub-title">Time Varying Autoregressive Moving Average Models for Covariance Estimation</div>
         <div class="pub-authors"><strong>Ofir Bibi</strong>, Ami Wiesel, Amir Globerson — IEEE Transactions on Signal Processing, Vol. 61, No. 11</div>
-      </div>
-      <div class="pub-action">
-        <a href="https://ieeexplore.ieee.org/document/6494326/" class="pub-link" target="_blank" rel="noopener"><svg><use href="#ico-link"/></svg>IEEE</a>
+        <a href="https://ieeexplore.ieee.org/document/6494326/" class="pub-link" target="_blank" rel="noopener">Read paper <svg><use href="#ico-link"/></svg></a>
       </div>
     </div>
 
   </div>
 
-  <div style="margin-top:1.5rem; text-align:right;">
+  <div style="margin-top:1.25rem; text-align:right;">
     <a href="https://scholar.google.com/citations?user=UXYmnbgAAAAJ&hl=en" class="btn btn-ghost" target="_blank" rel="noopener" style="font-size:.7rem;">
-      <svg width="14" height="14"><use href="#ico-scholar"/></svg>All publications on Google Scholar →
+      <svg width="13" height="13"><use href="#ico-scholar"/></svg>All publications on Google Scholar →
     </a>
   </div>
 </section>
@@ -641,71 +552,41 @@
 <!-- PRESS -->
 <section id="press" class="sep">
   <div class="lbl">Press &amp; Media</div>
-  <h2 class="sec-title">Talks &amp;<br>Coverage</h2>
+  <h2 class="sec-title">Talks &amp; Coverage</h2>
 
   <div class="press-grid fi">
 
     <div class="press-item">
       <div class="press-visual press-visual-podcast">
-        <!-- Waveform bars -->
-        <svg viewBox="0 0 56 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:56px;height:32px">
-          <rect x="2"  y="12" width="4" height="8"  rx="2" fill="#c9a96e" opacity=".5"/>
-          <rect x="9"  y="6"  width="4" height="20" rx="2" fill="#c9a96e" opacity=".7"/>
-          <rect x="16" y="2"  width="4" height="28" rx="2" fill="#c9a96e"/>
-          <rect x="23" y="9"  width="4" height="14" rx="2" fill="#c9a96e" opacity=".65"/>
-          <rect x="30" y="4"  width="4" height="24" rx="2" fill="#c9a96e" opacity=".9"/>
-          <rect x="37" y="8"  width="4" height="16" rx="2" fill="#c9a96e" opacity=".6"/>
-          <rect x="44" y="13" width="4" height="7"  rx="2" fill="#c9a96e" opacity=".45"/>
-          <rect x="51" y="14" width="4" height="5"  rx="2" fill="#c9a96e" opacity=".35"/>
-        </svg>
+        <svg><use href="#ico-mic"/></svg>
       </div>
       <div class="press-body">
         <div class="press-type"><svg><use href="#ico-mic"/></svg>Podcast</div>
-        <div class="press-title">Code Story — Season 11 Bonus: Ofir Bibi, Lightricks</div>
-        <div class="press-desc">Jerusalem upbringing, love of photography, Lightricks' journey from on-device tricks to cloud foundation models, LTXV open-source strategy, and the multimodal future of video AI.</div>
+        <div class="press-title">Code Story — Ofir Bibi, Lightricks</div>
+        <div class="press-desc">Jerusalem upbringing, love of photography, Lightricks' journey from on-device tricks to cloud foundation models, and the open-source strategy behind LTXV.</div>
         <a href="https://codestory.co/podcast/bonus-ofir-bibi-lightricks/" class="press-link" target="_blank" rel="noopener">Listen <svg><use href="#ico-link"/></svg></a>
       </div>
     </div>
 
     <div class="press-item">
       <div class="press-visual press-visual-article">
-        <!-- Quote mark visual -->
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <text x="4" y="38" font-size="48" fill="#6ee4a0" opacity=".35" font-family="Georgia,serif">"</text>
-        </svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       </div>
       <div class="press-body">
         <div class="press-type"><svg><use href="#ico-link"/></svg>Interview</div>
         <div class="press-title">AiThority — VP Research at Lightricks on Generative AI</div>
-        <div class="press-desc">On the generative AI transformation, responsible AI development, training data quality, and bridging fundamental research with product deployment at scale.</div>
+        <div class="press-desc">On generative AI transformation, responsible development, training data quality, and bridging fundamental research with product deployment at scale.</div>
         <a href="https://aithority.com/it-and-devops/aithority-interview-with-ofir-bibi-vp-research-at-lightricks/" class="press-link" target="_blank" rel="noopener">Read <svg><use href="#ico-link"/></svg></a>
       </div>
     </div>
 
     <div class="press-item">
       <div class="press-visual press-visual-casestudy">
-        <!-- TPU/chip grid visual -->
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="12" y="12" width="24" height="24" rx="3" stroke="#7ec8e3" stroke-width="1" opacity=".6" fill="none"/>
-          <rect x="17" y="17" width="14" height="14" rx="2" fill="#7ec8e3" opacity=".15"/>
-          <rect x="19" y="19" width="10" height="10" rx="1" fill="#7ec8e3" opacity=".2"/>
-          <line x1="12" y1="18" x2="6"  y2="18" stroke="#7ec8e3" stroke-width="1" opacity=".5"/>
-          <line x1="12" y1="24" x2="6"  y2="24" stroke="#7ec8e3" stroke-width="1" opacity=".5"/>
-          <line x1="12" y1="30" x2="6"  y2="30" stroke="#7ec8e3" stroke-width="1" opacity=".5"/>
-          <line x1="36" y1="18" x2="42" y2="18" stroke="#7ec8e3" stroke-width="1" opacity=".5"/>
-          <line x1="36" y1="24" x2="42" y2="24" stroke="#7ec8e3" stroke-width="1" opacity=".5"/>
-          <line x1="36" y1="30" x2="42" y2="30" stroke="#7ec8e3" stroke-width="1" opacity=".5"/>
-          <line x1="18" y1="12" x2="18" y2="6"  stroke="#7ec8e3" stroke-width="1" opacity=".5"/>
-          <line x1="24" y1="12" x2="24" y2="6"  stroke="#7ec8e3" stroke-width="1" opacity=".5"/>
-          <line x1="30" y1="12" x2="30" y2="6"  stroke="#7ec8e3" stroke-width="1" opacity=".5"/>
-          <line x1="18" y1="36" x2="18" y2="42" stroke="#7ec8e3" stroke-width="1" opacity=".5"/>
-          <line x1="24" y1="36" x2="24" y2="42" stroke="#7ec8e3" stroke-width="1" opacity=".5"/>
-          <line x1="30" y1="36" x2="30" y2="42" stroke="#7ec8e3" stroke-width="1" opacity=".5"/>
-        </svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
       </div>
       <div class="press-body">
         <div class="press-type"><svg><use href="#ico-link"/></svg>Case Study</div>
-        <div class="press-title">Google Cloud — Lightricks LTXV: How TPUs Cut Time-to-Market by 33%</div>
+        <div class="press-title">Google Cloud — How TPUs Cut Time-to-Market by 33%</div>
         <div class="press-desc">"We achieved our goals of launching on time and being first to market, in large part thanks to TPU enabling us to innovate faster — turning a six-month project into four." — Ofir Bibi</div>
         <a href="https://cloud.google.com/customers/lightricks-ltxv" class="press-link" target="_blank" rel="noopener">Read <svg><use href="#ico-link"/></svg></a>
       </div>
@@ -713,21 +594,12 @@
 
     <div class="press-item">
       <div class="press-visual press-visual-podcast">
-        <svg viewBox="0 0 56 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:56px;height:32px">
-          <rect x="2"  y="14" width="4" height="5"  rx="2" fill="#c9a96e" opacity=".4"/>
-          <rect x="9"  y="9"  width="4" height="15" rx="2" fill="#c9a96e" opacity=".6"/>
-          <rect x="16" y="5"  width="4" height="22" rx="2" fill="#c9a96e" opacity=".85"/>
-          <rect x="23" y="11" width="4" height="10" rx="2" fill="#c9a96e" opacity=".6"/>
-          <rect x="30" y="3"  width="4" height="26" rx="2" fill="#c9a96e"/>
-          <rect x="37" y="7"  width="4" height="18" rx="2" fill="#c9a96e" opacity=".7"/>
-          <rect x="44" y="11" width="4" height="10" rx="2" fill="#c9a96e" opacity=".5"/>
-          <rect x="51" y="15" width="4" height="4"  rx="2" fill="#c9a96e" opacity=".35"/>
-        </svg>
+        <svg><use href="#ico-mic"/></svg>
       </div>
       <div class="press-body">
         <div class="press-type"><svg><use href="#ico-mic"/></svg>Podcast</div>
         <div class="press-title">Tech Talks Daily — Open Source Video and the Race for Faster Creativity</div>
-        <div class="press-desc">Deep dive on LTXV open-source strategy, training philosophy, the role of data quality over quantity, and the road to multimodal foundation models.</div>
+        <div class="press-desc">Deep dive on open-source strategy, training philosophy, data quality over quantity, and the road to multimodal foundation models.</div>
         <a href="https://techblogwriter.co.uk/lightricks/" class="press-link" target="_blank" rel="noopener">Read <svg><use href="#ico-link"/></svg></a>
       </div>
     </div>
@@ -746,29 +618,26 @@
     <li><a href="https://github.com/Lightricks/LTX-2" target="_blank" rel="noopener">LTX-2</a></li>
     <li><a href="https://www.lightricks.com" target="_blank" rel="noopener">Lightricks</a></li>
   </ul>
-  <span class="foot-copy">VP of Research · Lightricks</span>
+  <span class="foot-copy">VP Research · Lightricks</span>
 </footer>
 
 <script>
   const nav = document.getElementById('nav');
   let lastY = 0;
-
   window.addEventListener('scroll', () => {
     const y = scrollY;
-    // On mobile only: hide nav when scrolling down, show when scrolling up
     if (window.innerWidth <= 640) {
       nav.classList.toggle('nav-hidden', y > lastY && y > 80);
     }
     lastY = y;
   }, { passive: true });
 
-  // Intersection fade-in + timeline
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
   }, { threshold: 0.08 });
 
   document.querySelectorAll('.fi, .tl-item').forEach((el, i) => {
-    if (el.classList.contains('tl-item')) el.style.transitionDelay = `${i * 0.08}s`;
+    if (el.classList.contains('tl-item')) el.style.transitionDelay = `${i * 0.07}s`;
     obs.observe(el);
   });
 </script>
