@@ -7,7 +7,7 @@
   <title>Ofir Bibi</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
     <symbol id="ico-gh" viewBox="0 0 24 24" fill="currentColor">
@@ -102,12 +102,12 @@
 
     .hero-content { flex:1; min-width:0; }
     .hero-name {
-      font-family:'Playfair Display',serif; font-weight:900; line-height:1;
-      font-size:clamp(2.8rem,5.5vw,5.5rem); letter-spacing:-.02em; color:var(--txt);
+      font-family:'Inter',system-ui,sans-serif; font-weight:800; line-height:1;
+      font-size:clamp(2.8rem,5.5vw,5.2rem); letter-spacing:-.035em; color:var(--txt);
       white-space:nowrap;
       opacity:0; animation:fadeUp .7s ease forwards .3s;
     }
-    .hero-name em { font-style:italic; color:var(--gold); }
+    .hero-name em { font-style:normal; color:var(--gold); }
     .hero-role {
       margin-top:.6rem; font-size:.8rem; font-weight:500;
       letter-spacing:.14em; text-transform:uppercase; color:var(--txt3);
@@ -183,7 +183,6 @@
     .badge { font-size:.58rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; padding:.18rem .55rem; border:1px solid var(--bdr); color:var(--txt3); }
     .badge.gold { border-color:var(--gold); color:var(--gold); background:var(--gold-m); }
     .card-title { font-family:'Playfair Display',serif; font-size:1.7rem; font-weight:700; color:var(--txt); line-height:1.1; }
-    .card-title em { font-style:italic; color:var(--gold); }
     .card-tag { margin-top:.4rem; font-size:.88rem; color:var(--txt2); font-weight:500; }
     .card-desc { margin-top:1rem; font-size:.9rem; line-height:1.75; color:var(--txt2); }
     .card-links { margin-top:1.25rem; display:flex; gap:.5rem; flex-wrap:wrap; }
@@ -272,8 +271,8 @@
   <a href="#" class="nav-logo">OB<span>.</span></a>
   <ul class="nav-links">
     <li class="hide-sm"><a href="#about">About</a></li>
-    <li class="hide-sm"><a href="#work">Work</a></li>
     <li class="hide-sm"><a href="#publications">Publications</a></li>
+    <li class="hide-sm"><a href="#work">Work</a></li>
     <li><a href="https://github.com/ofirbb" target="_blank" rel="noopener" class="nav-icon" title="GitHub">
       <svg width="17" height="17"><use href="#ico-gh"/></svg>
     </a></li>
@@ -308,8 +307,8 @@
         Building the foundation of generative media — from efficient open-source models to production systems reaching millions of creators worldwide.
       </p>
       <div class="hero-cta">
-        <a href="#work" class="btn btn-gold">View Work</a>
-        <a href="#publications" class="btn btn-ghost">Publications</a>
+        <a href="#publications" class="btn btn-gold">Publications</a>
+        <a href="#work" class="btn btn-ghost">View Work</a>
       </div>
     </div>
   </div>
@@ -341,7 +340,7 @@
         <div class="career-line">
           <span class="career-year">2009 – 2015</span>
           <div class="career-right">
-            <span class="career-role"><strong>BrightSource Energy</strong> — ML Engineer</span>
+            <span class="career-role"><strong>BrightSource Energy</strong> — ML Engineer → ML Team Lead</span>
             <span class="career-achieve">Developed ML systems for real-time optimization of utility-scale concentrated solar power plants</span>
           </div>
         </div>
@@ -371,88 +370,50 @@
   </div>
 </section>
 
-<!-- WORK — most recent first, achievement-focused -->
-<section id="work" class="sep">
-  <div class="lbl">Selected Work</div>
-  <h2 class="sec-title">The LTX Model Journey</h2>
-  <p class="work-lead">
-    From the world's first real-time open-source video model to a complete audio-video foundation model — a two-year sprint to the frontier of generative media.
-  </p>
-
-  <div class="timeline">
-
-    <!-- LTX-2 — most recent, flagship -->
-    <div class="tl-item">
-      <div class="tl-dot big"></div>
-      <div class="card flag">
-        <div class="card-meta">
-          <span class="card-date">JAN 2026</span>
-          <span class="badge gold">Flagship · Open Source</span>
-        </div>
-        <h3 class="card-title">LTX-<em>2</em></h3>
-        <p class="card-tag">First open-source model to generate synchronized 4K audio and video</p>
-        <p class="card-desc">
-          Announced with NVIDIA at CES 2026, LTX-2 was the first production-ready model to combine native audio and video generation with fully open weights, training code, and inference code — a milestone the industry called Lightricks' "DeepSeek moment." In human preference studies it performs comparably to Sora 2 and Veo 3, while running at 18× the speed of comparable open models. For the first time, anyone could train their own audio-visual IP directly into a foundation model.
-        </p>
-        <div class="card-links">
-          <a href="https://github.com/Lightricks/LTX-2" class="card-link" target="_blank" rel="noopener"><svg><use href="#ico-gh"/></svg>GitHub</a>
-          <a href="https://huggingface.co/Lightricks/LTX-2" class="card-link" target="_blank" rel="noopener">🤗 HuggingFace</a>
-          <a href="https://arxiv.org/abs/2601.03233" class="card-link" target="_blank" rel="noopener"><svg><use href="#ico-link"/></svg>Paper</a>
-          <a href="https://ltx.io/model" class="card-link" target="_blank" rel="noopener"><svg><use href="#ico-link"/></svg>LTX.io</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- LTXV-13B -->
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="card">
-        <div class="card-meta">
-          <span class="card-date">MAY 2025</span>
-          <span class="badge">Breakthrough</span>
-        </div>
-        <h3 class="card-title">LTX-Video <em>13B</em></h3>
-        <p class="card-tag">Made high-quality AI video accessible on consumer hardware</p>
-        <p class="card-desc">
-          The 13B model introduced multiscale rendering — drafting motion coarsely first, then progressively refining detail — achieving speeds 30× faster than competing models of comparable size. What previously required $10,000 enterprise GPUs now ran on a consumer RTX card: 37 seconds to generate what took rivals over 25 minutes.
-        </p>
-        <div class="card-links">
-          <a href="https://github.com/Lightricks/LTX-Video" class="card-link" target="_blank" rel="noopener"><svg><use href="#ico-gh"/></svg>GitHub</a>
-          <a href="https://venturebeat.com/ai/lightricks-just-made-ai-video-generation-30x-faster-and-you-wont-need-a-10000-gpu" class="card-link" target="_blank" rel="noopener"><svg><use href="#ico-link"/></svg>VentureBeat</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- LTX-Video — oldest -->
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="card">
-        <div class="card-meta">
-          <span class="card-date">NOV 2024</span>
-          <span class="badge">Open Source</span>
-        </div>
-        <h3 class="card-title">LTX-<em>Video</em></h3>
-        <p class="card-tag">First open-source video model to run faster than real-time</p>
-        <p class="card-desc">
-          LTXV was the first open-source video model to generate a 5-second clip in under 4 seconds — faster than the video plays back. Released with full weights and training code, it seeded a global developer community that reached 9,300+ GitHub stars and integrations into ComfyUI, Diffusers, and major creative platforms. Training on Google Cloud TPUs cut a six-month development timeline to four.
-        </p>
-        <div class="card-links">
-          <a href="https://github.com/Lightricks/LTX-Video" class="card-link" target="_blank" rel="noopener"><svg><use href="#ico-gh"/></svg>GitHub</a>
-          <a href="https://huggingface.co/Lightricks/LTX-Video" class="card-link" target="_blank" rel="noopener">🤗 HuggingFace</a>
-          <a href="https://arxiv.org/abs/2501.00103" class="card-link" target="_blank" rel="noopener"><svg><use href="#ico-link"/></svg>Paper</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
 <!-- PUBLICATIONS -->
 <section id="publications" class="sep">
   <div class="lbl">Research</div>
   <h2 class="sec-title">Publications</h2>
 
   <div class="pub-grid fi">
+
+    <div class="pub-item">
+      <div class="pub-thumb">
+        <video autoplay loop muted playsinline preload="metadata"
+               style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <source src="assets/lumivid_teaser.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="pub-body">
+        <div class="pub-top">
+          <span class="pub-venue top">arXiv</span>
+          <span class="pub-year-tag">2026</span>
+        </div>
+        <div class="pub-title">LumiVid: HDR Video Generation via Latent Alignment with Logarithmic Encoding</div>
+        <div class="pub-authors">Naomi Ken Korem, Mohamed Oumoumad, Harel Cain, Matan Ben Yosef, Urska Jelercic, <strong>Ofir Bibi</strong>, Yaron Inger, Or Patashnik, Daniel Cohen-Or</div>
+        <a href="https://arxiv.org/abs/2604.11788" class="pub-link" target="_blank" rel="noopener">Read paper <svg><use href="#ico-link"/></svg></a>
+        <a href="https://hdr-lumivid.github.io/" class="pub-link" target="_blank" rel="noopener">Project page <svg><use href="#ico-link"/></svg></a>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-thumb">
+        <video autoplay loop muted playsinline preload="metadata"
+               style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <source src="assets/avcontrol_teaser.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="pub-body">
+        <div class="pub-top">
+          <span class="pub-venue top">arXiv</span>
+          <span class="pub-year-tag">2026</span>
+        </div>
+        <div class="pub-title">AVControl: Efficient Framework for Training Audio-Visual Controls</div>
+        <div class="pub-authors">Matan Ben-Yosef, Tavi Halperin, Naomi Ken Korem, Mohammad Salama, Harel Cain, Asaf Joseph, Anthony Chen, Urska Jelercic, <strong>Ofir Bibi</strong></div>
+        <a href="https://arxiv.org/abs/2603.24793" class="pub-link" target="_blank" rel="noopener">Read paper <svg><use href="#ico-link"/></svg></a>
+        <a href="https://matanby.github.io/AVControl/" class="pub-link" target="_blank" rel="noopener">Project page <svg><use href="#ico-link"/></svg></a>
+      </div>
+    </div>
 
     <div class="pub-item">
       <div class="pub-thumb">
@@ -571,6 +532,82 @@
     <a href="https://scholar.google.com/citations?user=UXYmnbgAAAAJ&hl=en" class="btn btn-ghost" target="_blank" rel="noopener" style="font-size:.7rem;">
       <svg width="13" height="13"><use href="#ico-scholar"/></svg>All publications on Google Scholar →
     </a>
+  </div>
+</section>
+
+<!-- WORK — most recent first, achievement-focused -->
+<section id="work" class="sep">
+  <div class="lbl">Selected Work</div>
+  <h2 class="sec-title">The LTX Model Journey</h2>
+  <p class="work-lead">
+    From the world's first real-time open-source video model to a complete audio-video foundation model — a two-year sprint to the frontier of generative media.
+  </p>
+
+  <div class="timeline">
+
+    <!-- LTX-2 — most recent, flagship -->
+    <div class="tl-item">
+      <div class="tl-dot big"></div>
+      <div class="card flag">
+        <div class="card-meta">
+          <span class="card-date">JAN 2026 → MAR 2026</span>
+          <span class="badge gold">Flagship · Open Source</span>
+        </div>
+        <h3 class="card-title">LTX-2 → LTX-2.3</h3>
+        <p class="card-tag">First open-source model to generate synchronized 4K audio and video</p>
+        <p class="card-desc">
+          Announced with NVIDIA at CES 2026, LTX-2 was the first production-ready model to combine native audio and video generation with fully open weights, training code, and inference code — a milestone the industry called Lightricks' "DeepSeek moment." In human preference studies it performs comparably to Sora 2 and Veo 3, while running at 18× the speed of comparable open models. For the first time, anyone could train their own audio-visual IP directly into a foundation model.
+        </p>
+        <div class="card-links">
+          <a href="https://github.com/Lightricks/LTX-2" class="card-link" target="_blank" rel="noopener"><svg><use href="#ico-gh"/></svg>GitHub</a>
+          <a href="https://huggingface.co/Lightricks/LTX-2" class="card-link" target="_blank" rel="noopener">🤗 HuggingFace</a>
+          <a href="https://arxiv.org/abs/2601.03233" class="card-link" target="_blank" rel="noopener"><svg><use href="#ico-link"/></svg>Paper</a>
+          <a href="https://ltx.io/model" class="card-link" target="_blank" rel="noopener"><svg><use href="#ico-link"/></svg>LTX.io</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- LTXV-13B -->
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="card">
+        <div class="card-meta">
+          <span class="card-date">MAY 2025</span>
+          <span class="badge">Breakthrough</span>
+        </div>
+        <h3 class="card-title">LTX-Video 13B</h3>
+        <p class="card-tag">Made high-quality AI video accessible on consumer hardware</p>
+        <p class="card-desc">
+          The 13B model introduced multiscale rendering — drafting motion coarsely first, then progressively refining detail — achieving speeds 30× faster than competing models of comparable size. What previously required $10,000 enterprise GPUs now ran on a consumer RTX card: 37 seconds to generate what took rivals over 25 minutes.
+        </p>
+        <div class="card-links">
+          <a href="https://github.com/Lightricks/LTX-Video" class="card-link" target="_blank" rel="noopener"><svg><use href="#ico-gh"/></svg>GitHub</a>
+          <a href="https://venturebeat.com/ai/lightricks-just-made-ai-video-generation-30x-faster-and-you-wont-need-a-10000-gpu" class="card-link" target="_blank" rel="noopener"><svg><use href="#ico-link"/></svg>VentureBeat</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- LTX-Video — oldest -->
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="card">
+        <div class="card-meta">
+          <span class="card-date">NOV 2024</span>
+          <span class="badge">Open Source</span>
+        </div>
+        <h3 class="card-title">LTX-Video 2B</h3>
+        <p class="card-tag">First open-source video model to run faster than real-time</p>
+        <p class="card-desc">
+          LTXV was the first open-source video model to generate a 5-second clip in under 4 seconds — faster than the video plays back. Released with full weights and training code, it seeded a global developer community that reached 9,300+ GitHub stars and integrations into ComfyUI, Diffusers, and major creative platforms. Training on Google Cloud TPUs cut a six-month development timeline to four.
+        </p>
+        <div class="card-links">
+          <a href="https://github.com/Lightricks/LTX-Video" class="card-link" target="_blank" rel="noopener"><svg><use href="#ico-gh"/></svg>GitHub</a>
+          <a href="https://huggingface.co/Lightricks/LTX-Video" class="card-link" target="_blank" rel="noopener">🤗 HuggingFace</a>
+          <a href="https://arxiv.org/abs/2501.00103" class="card-link" target="_blank" rel="noopener"><svg><use href="#ico-link"/></svg>Paper</a>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
